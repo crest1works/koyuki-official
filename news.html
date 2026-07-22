@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NEWS一覧｜KOYUKI Official Site</title>
+<meta name="description" content="KOYUKIのお知らせ・活動記録の一覧です。出演情報、展示情報、メディア出演などを随時更新しています。">
+<link rel="canonical" href="https://www.example.com/news.html">
+
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="KOYUKI Official Site">
+<meta property="og:title" content="NEWS一覧｜KOYUKI Official Site">
+<meta property="og:description" content="KOYUKIのお知らせ・活動記録の一覧です。">
+<meta property="og:url" content="https://www.example.com/news.html">
+<meta property="og:image" content="https://www.example.com/assets/ogp-default.jpg">
+<meta property="og:locale" content="ja_JP">
+<meta name="twitter:card" content="summary_large_image">
+
+<link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16.png">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Noto+Serif+JP:wght@500;600;700&display=swap">
+
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<a class="skip-link" href="#main">本文へスキップ</a>
+
+<header class="site-header">
+  <div class="wrap">
+    <a href="index.html#top" class="logo">
+      <span class="logo-main">KOYUKI</span>
+      <span class="logo-sub">Official Site</span>
+    </a>
+    <nav class="main-nav" id="main-nav" aria-label="サイト内ナビゲーション">
+      <a href="index.html#top">HOME</a>
+      <a href="index.html#about">ABOUT</a>
+      <a href="index.html#works">WORKS</a>
+      <a href="index.html#gallery">GALLERY</a>
+      <a href="news.html" class="active">NEWS</a>
+      <a href="index.html#contact">CONTACT</a>
+    </nav>
+    <button class="nav-toggle" id="nav-toggle" aria-label="メニューを開く" aria-expanded="false" aria-controls="main-nav">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<main id="main">
+  <section class="section" style="padding-top: 148px;">
+    <div class="wrap">
+      <div class="section-head center reveal">
+        <span class="eyebrow">NEWS</span>
+        <h1 class="section-title">News 一覧</h1>
+        <p class="section-lead center">Model / Event / Media / FANME / Other など、活動に関する記録をまとめています。</p>
+      </div>
+
+      <!--
+        運用メモ：カテゴリタブは固定の6つ（ALL/MODEL/EVENT/MEDIA/FANME/OTHER）です。
+        新しいタグを増やしたい場合は、このタブ行と各記事のdata-category、
+        style.cssの「タグ（カテゴリ）カラー」を合わせて追記してください。
+      -->
+      <div class="news-filter reveal" role="tablist" aria-label="カテゴリで絞り込み">
+        <button type="button" class="news-filter-btn" data-filter="all" aria-pressed="true">ALL</button>
+        <button type="button" class="news-filter-btn" data-filter="model" aria-pressed="false">MODEL</button>
+        <button type="button" class="news-filter-btn" data-filter="event" aria-pressed="false">EVENT</button>
+        <button type="button" class="news-filter-btn" data-filter="media" aria-pressed="false">MEDIA</button>
+        <button type="button" class="news-filter-btn" data-filter="fanme" aria-pressed="false">FANME</button>
+        <button type="button" class="news-filter-btn" data-filter="other" aria-pressed="false">OTHER</button>
+      </div>
+
+      <!--
+        運用メモ：新しい記事を追加するときは news/_template.html を複製して
+        news/ 配下に記事ページを作成し、このリストの一番上に .news-index-item を
+        1ブロック追記してください（新しい記事が上に来るように）。
+        data-category は model / event / media / fanme / other のいずれかを指定します。
+      -->
+      <div class="news-index-list reveal" id="news-index-list">
+        <a class="glass news-index-item" data-category="fanme" href="news/2026-07-fanme-swimwear-event.html">
+          <div class="thumb"><img src="assets/images/news/news-fanme-swimwear-event.svg" alt="FANME水着コレクションイベント" width="1200" height="800" loading="lazy"></div>
+          <div>
+            <span class="date">2026.07.17 - 2026.08.04</span>
+            <span class="tag tag-fanme">FANME</span>
+            <h2>FANME 水着コレクションイベント参加</h2>
+          </div>
+        </a>
+        <a class="glass news-index-item" data-category="fanme" href="news/2026-07-fanme-swimwear-gacha.html">
+          <div class="thumb"><img src="assets/images/news/news-fanme-swimwear-gacha.svg" alt="FANME水着コレクションガチャ" width="1200" height="800" loading="lazy"></div>
+          <div>
+            <span class="date">2026.07.16</span>
+            <span class="tag tag-fanme">FANME</span>
+            <h2>FANME 水着コレクションガチャ販売開始</h2>
+          </div>
+        </a>
+        <a class="glass news-index-item" data-category="media" href="news/2026-07-mid-fm761.html">
+          <div class="thumb"><img src="assets/images/news/news-mid-fm761.svg" alt="MID-FM761出演" width="1200" height="800" loading="lazy"></div>
+          <div>
+            <span class="date">2026.07.11</span>
+            <span class="tag tag-media">Media</span>
+            <h2>MID-FM761「しおりが紐解くDEEPな世界」ゲスト出演</h2>
+          </div>
+        </a>
+        <a class="glass news-index-item" data-category="event" href="news/2026-04-squeeze-cheki.html">
+          <div class="thumb"><img src="assets/images/news/news-squeeze-cheki.svg" alt="スクイーズ販売＆チェキ会" width="1200" height="800" loading="lazy"></div>
+          <div>
+            <span class="date">2026.04.25</span>
+            <span class="tag tag-event">Event</span>
+            <h2>スクイーズ販売＆チェキ会 開催</h2>
+          </div>
+        </a>
+        <a class="glass news-index-item" data-category="model" href="news/2026-04-sakuhin-damashii.html">
+          <div class="thumb"><img src="assets/images/news/news-sakuhin-damashii.svg" alt="さくひん魂展示" width="1200" height="800" loading="lazy"></div>
+          <div>
+            <span class="date">2026.04.17</span>
+            <span class="tag tag-model">Model</span>
+            <h2>展示企画「さくひん魂」展示モデル参加</h2>
+          </div>
+        </a>
+        <a class="glass news-index-item" data-category="model" href="news/2026-04-ok-boomer.html">
+          <div class="thumb"><img src="assets/images/news/news-ok-boomer.svg" alt="OK boomer展示" width="1200" height="800" loading="lazy"></div>
+          <div>
+            <span class="date">2026.04.06</span>
+            <span class="tag tag-model">Model</span>
+            <h2>展示企画「OK boomer」展示モデル参加</h2>
+          </div>
+        </a>
+      </div>
+      <p class="news-empty" id="news-empty">このカテゴリの記事はまだありません。</p>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <a href="index.html#top" class="logo">
+      <span class="logo-main">KOYUKI</span>
+      <span class="logo-sub">Official Site</span>
+    </a>
+    <nav class="footer-nav" aria-label="フッターナビゲーション">
+      <a href="index.html#top">HOME</a>
+      <a href="index.html#about">ABOUT</a>
+      <a href="index.html#works">WORKS</a>
+      <a href="index.html#gallery">GALLERY</a>
+      <a href="news.html">NEWS</a>
+      <a href="index.html#contact">CONTACT</a>
+    </nav>
+    <div class="sns-row">
+      <a class="sns-icon" href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer" aria-label="Instagram（別タブで開く）">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r="1"/></svg>
+      </a>
+      <a class="sns-icon" href="https://www.tiktok.com/" target="_blank" rel="noopener noreferrer" aria-label="TikTok（別タブで開く）">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M14 4v10.2a3.3 3.3 0 1 1-2.6-3.23V8.6a5.7 5.7 0 1 0 4.9 5.65V9.4a6.6 6.6 0 0 0 3.7 1.13V7.9A4 4 0 0 1 16.4 4Z"/></svg>
+      </a>
+      <a class="sns-icon" href="https://x.com/" target="_blank" rel="noopener noreferrer" aria-label="X（別タブで開く）">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 5l14 14M19 5 5 19"/></svg>
+      </a>
+      <a class="sns-icon" href="https://fanme.jp/" target="_blank" rel="noopener noreferrer" aria-label="FANME（別タブで開く）">
+        <span style="font-family:var(--font-serif); font-weight:700; font-size:.62rem;">FANME</span>
+      </a>
+    </div>
+    <p class="copyright">© 2026 KOYUKI. All Rights Reserved.</p>
+  </div>
+</footer>
+
+<button class="back-to-top glass" id="back-to-top" aria-label="ページの先頭へ戻る">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
+</button>
+
+<script src="js/main.js"></script>
+<script src="js/news-filter.js"></script>
+</body>
+</html>

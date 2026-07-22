@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="800" viewBox="0 0 1200 800">
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#f3eefb"/>
+      <stop offset="100%" stop-color="#d9cbef"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="800" fill="url(#g)"/>
+  <rect x="16" y="16" width="1168" height="768" fill="none" stroke="#ffffff" stroke-width="2" stroke-dasharray="10 8" rx="18"/>
+  <text x="50%" y="48%" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="75" fill="#6b5f8a" font-weight="600">NEWS</text>
+  <text x="50%" y="56%" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="37" fill="#8a7fa8">FANME 水着イベント</text>
+</svg>

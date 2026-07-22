@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>KOYUKI Official Site｜Model・Live Streamer・Digital Creator</title>
+<meta name="description" content="愛知県を拠点に活動するマルチクリエイターKOYUKIの公式サイト。モデル・ライブ配信・イベント出演などの活動経歴、ギャラリー、最新ニュース、お仕事のご依頼はこちらから。">
+<link rel="canonical" href="https://www.example.com/">
+
+<!-- OGP（SNSでシェアされた際の表示設定。URL/画像は本公開時に差し替えてください） -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="KOYUKI Official Site">
+<meta property="og:title" content="KOYUKI Official Site｜Model・Live Streamer・Digital Creator">
+<meta property="og:description" content="愛知県を拠点に活動するマルチクリエイターKOYUKIの公式サイト。活動経歴・ギャラリー・最新ニュース・お仕事のご依頼はこちらから。">
+<meta property="og:url" content="https://www.example.com/">
+<meta property="og:image" content="https://www.example.com/assets/ogp-default.jpg">
+<meta property="og:locale" content="ja_JP">
+<meta name="twitter:card" content="summary_large_image">
+
+<link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16.png">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+
+<!-- Webフォント：Noto Serif JP（見出し）/ Noto Sans JP（本文）。Google Fonts CDN経由でwoff2配信、表示速度に配慮 -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Noto+Serif+JP:wght@500;600;700&display=swap">
+
+<link rel="stylesheet" href="css/style.css">
+
+<!-- 構造化データ（SEO：検索結果でのリッチ表示を補助） -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "KOYUKI",
+  "url": "https://www.example.com/",
+  "jobTitle": "Multi-Creator（Model / Live Streamer / Digital Creator）",
+  "address": { "@type": "PostalAddress", "addressRegion": "愛知県", "addressCountry": "JP" },
+  "sameAs": [
+    "https://www.instagram.com/",
+    "https://www.tiktok.com/",
+    "https://x.com/"
+  ]
+}
+</script>
+</head>
+<body>
+<a class="skip-link" href="#main">本文へスキップ</a>
+
+<!-- ============ ヘッダー / ナビゲーション ============ -->
+<header class="site-header" id="top">
+  <div class="wrap">
+    <a href="#top" class="logo">
+      <span class="logo-main">KOYUKI</span>
+      <span class="logo-sub">Official Site</span>
+    </a>
+    <nav class="main-nav" id="main-nav" aria-label="サイト内ナビゲーション">
+      <a href="#top" class="active">HOME</a>
+      <a href="#about">ABOUT</a>
+      <a href="#works">WORKS</a>
+      <a href="#gallery">GALLERY</a>
+      <a href="news.html">NEWS</a>
+      <a href="#contact">CONTACT</a>
+    </nav>
+    <button class="nav-toggle" id="nav-toggle" aria-label="メニューを開く" aria-expanded="false" aria-controls="main-nav">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<main id="main">
+
+  <!-- ============ 1. Hero ============ -->
+  <section class="hero">
+    <div class="hero-bg">
+      <!-- Hero写真：白いワンピース・帽子で椅子に座っている写真に差し替え予定（トリミングのみ、顔・体型の加工不可） -->
+      <img src="assets/images/hero/hero-main.jpg" alt="白いワンピースと帽子姿で椅子に座るKOYUKI" width="1000" height="1250" fetchpriority="high">
+    </div>
+    <div class="wrap hero-inner">
+      <div class="hero-copy reveal in">
+        <h1>KOYUKI</h1>
+        <p class="role">Multi-Creator</p>
+        <p class="roles-sub">Model ・ Live Streamer ・ Digital Creator</p>
+        <a href="#about" class="btn">VIEW MORE <span class="btn-arrow" aria-hidden="true">→</span></a>
+      </div>
+
+      <aside class="glass hero-news-card reveal in" aria-label="最新ニュース">
+        <h2>NEWS</h2>
+        <!--
+          運用メモ：記事を追加するときは .hero-news-list 内に <li> を1件（先頭に）追記するだけでOKです。
+          表示領域の高さは固定で、件数が増えても内部だけ縦スクロールするため、Heroの高さは変わりません。
+        -->
+        <ul class="hero-news-list" tabindex="0" role="list" aria-label="最新ニュース一覧（縦にスクロールできます）">
+          <li>
+            <a href="news/2026-07-fanme-swimwear-event.html">
+              <span class="date">2026.07.17 - 2026.08.04</span>
+              <span class="tag tag-fanme">FANME</span>
+              <span class="title">FANME 水着コレクションイベント参加</span>
+            </a>
+          </li>
+          <li>
+            <a href="news/2026-07-fanme-swimwear-gacha.html">
+              <span class="date">2026.07.16</span>
+              <span class="tag tag-fanme">FANME</span>
+              <span class="title">FANME 水着コレクションガチャ販売開始</span>
+            </a>
+          </li>
+          <li>
+            <a href="news/2026-07-mid-fm761.html">
+              <span class="date">2026.07.11</span>
+              <span class="tag tag-media">Media</span>
+              <span class="title">MID-FM761「しおりが紐解くDEEPな世界」ゲスト出演</span>
+            </a>
+          </li>
+          <li>
+            <a href="news/2026-04-squeeze-cheki.html">
+              <span class="date">2026.04.25</span>
+              <span class="tag tag-event">Event</span>
+              <span class="title">スクイーズ販売＆チェキ会 開催</span>
+            </a>
+          </li>
+          <li>
+            <a href="news/2026-04-sakuhin-damashii.html">
+              <span class="date">2026.04.17</span>
+              <span class="tag tag-model">Model</span>
+              <span class="title">展示企画「さくひん魂」展示モデル参加</span>
+            </a>
+          </li>
+          <li>
+            <a href="news/2026-04-ok-boomer.html">
+              <span class="date">2026.04.06</span>
+              <span class="tag tag-model">Model</span>
+              <span class="title">展示企画「OK boomer」展示モデル参加</span>
+            </a>
+          </li>
+        </ul>
+        <a href="news.html" class="view-all">VIEW ALL <span aria-hidden="true">→</span></a>
+      </aside>
+    </div>
+  </section>
+
+  <!-- ============ 2. About ============ -->
+  <section class="section" id="about">
+    <div class="wrap about-grid reveal">
+      <div class="about-photo">
+        <!-- Aboutの写真は後日差し替え予定 -->
+        <img src="assets/images/about/about-photo.jpg" alt="赤いドレスで竹林を背景にほほえむKOYUKIのポートレート" width="933" height="1400" loading="lazy">
+      </div>
+      <div class="about-body">
+        <span class="eyebrow">ABOUT</span>
+        <h2 class="section-title">About KOYUKI</h2>
+        <!--
+          運用メモ：ここは文章を差し替えやすいよう、pタグ1つ・pre-lineで
+          改行をそのまま反映する構造にしています。文章を直接書き換えるだけでOKです。
+        -->
+        <p class="lead">愛知県を拠点に活動するマルチクリエイター。
+
+モデル・ライブ配信・イベント出演など、
+ジャンルにとらわれず、さまざまな活動を通して
+自分らしい表現を発信しています。</p>
+
+        <div class="about-meta">
+          <div><strong>拠点</strong>愛知県</div>
+          <div><strong>活動</strong>Model / Live Streamer / Digital Creator</div>
+          <div><strong>活動開始</strong>2023年10月〜</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 3. Works（活動経歴） ============ -->
+  <section class="section" id="works">
+    <div class="wrap">
+      <div class="section-head center reveal">
+        <span class="eyebrow">WORKS</span>
+        <h2 class="section-title">活動経歴</h2>
+      </div>
+
+      <div class="works-categories reveal">
+        <div class="works-category">
+          <span class="icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 8h3l1.5-2h7L17 8h3a1 1 0 0 1 1 1v9a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V9a1 1 0 0 1 1-1Z"/><circle cx="12" cy="13" r="3.4"/></svg>
+          </span>
+          <span class="label">Model<span>撮影・展示・作品撮り</span></span>
+        </div>
+        <div class="works-category">
+          <span class="icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M8.5 8.5a5 5 0 0 0 0 7M15.5 8.5a5 5 0 0 1 0 7M5.5 5.5a9 9 0 0 0 0 13M18.5 5.5a9 9 0 0 1 0 13"/><circle cx="12" cy="12" r="2"/></svg>
+          </span>
+          <span class="label">Live Streamer<span>TikTok LIVE・FANME</span></span>
+        </div>
+        <div class="works-category">
+          <span class="icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M20 4c-7 0-12 4-14 10 2 0 4-.5 5.5-1.5C10 15 8.5 17 6 18c8 1 14-4 14-14Z"/></svg>
+          </span>
+          <span class="label">Other<span>イベント・出演</span></span>
+        </div>
+      </div>
+
+      <!--
+        運用メモ：経歴を追加するときは、対象の年の直下に
+        .timeline-item をコピーして日付・タイトル・説明・タグ(class="tag tag-model/tag-live/tag-other")を
+        書き換えるだけで反映されます。新しい年が増えたら .timeline-year ごと追加してください。
+      -->
+      <ol class="timeline reveal">
+        <li class="timeline-year">2023</li>
+        <li class="timeline-item glass">
+          <p class="when">10月</p>
+          <h3>モデル活動開始 <span class="tag tag-model">Model</span></h3>
+          <p>被写体モデルとして活動をスタート。</p>
+        </li>
+
+        <li class="timeline-year">2024</li>
+        <li class="timeline-item glass">
+          <p class="when">2月</p>
+          <h3>TikTok LIVE 配信開始 <span class="tag tag-live">Live Streamer</span></h3>
+          <p>ライブ配信活動をスタート。</p>
+        </li>
+        <li class="timeline-item glass">
+          <p class="when">4月</p>
+          <h3>COLORS Jr. 展示モデル <span class="tag tag-model">Model</span></h3>
+          <p>展示作品のモデルとして参加。</p>
+        </li>
+        <li class="timeline-item glass">
+          <p class="when">10月</p>
+          <h3>REAL PORTRAIT 展示モデル <span class="tag tag-model">Model</span></h3>
+          <p>REAL PORTRAIT展示作品のモデルとして参加。</p>
+        </li>
+
+        <li class="timeline-year">2025</li>
+        <li class="timeline-item glass">
+          <p class="when">1月</p>
+          <h3>TikTok 日間ランキング入り <span class="tag tag-live">Live Streamer</span></h3>
+          <p>TikTok LIVEの日間ランキングにランクイン。</p>
+        </li>
+        <li class="timeline-item glass">
+          <p class="when">9月</p>
+          <h3>REAL PORTRAIT 展示モデル <span class="tag tag-model">Model</span></h3>
+          <p>REAL PORTRAIT展示作品のモデルとして参加。</p>
+        </li>
+
+        <li class="timeline-year">2026</li>
+        <li class="timeline-item glass">
+          <p class="when">1月</p>
+          <h3>オフ会開催 <span class="tag tag-other">Other</span></h3>
+          <p>ファンとの交流イベントを開催。</p>
+        </li>
+        <li class="timeline-item glass">
+          <p class="when">2月</p>
+          <h3>FANME バレンタインイベント <span class="tag tag-live">Live Streamer</span></h3>
+          <p>総合4位・ルーキー1位を獲得。</p>
+        </li>
+        <li class="timeline-item glass">
+          <p class="when">4月</p>
+          <h3>OK boomer 展示モデル <span class="tag tag-model">Model</span></h3>
+          <p>展示作品のモデルとして参加。</p>
+        </li>
+        <li class="timeline-item glass">
+          <p class="when">4月</p>
+          <h3>さくひん魂 展示モデル <span class="tag tag-model">Model</span></h3>
+          <p>展示作品のモデルとして参加。</p>
+        </li>
+        <li class="timeline-item glass">
+          <p class="when">7月</p>
+          <h3>MID-FM761「しおりが紐解くDEEPな世界」ゲスト出演 <span class="tag tag-other">Other</span></h3>
+          <p>ラジオ番組にゲスト出演。</p>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- ============ 4. Gallery ============ -->
+  <section class="section" id="gallery">
+    <div class="wrap">
+      <div class="section-head center reveal">
+        <span class="eyebrow">GALLERY</span>
+        <h2 class="section-title">Gallery</h2>
+        <p class="section-lead center">これまでの撮影・活動の中から厳選した写真です。写真をクリックすると拡大表示できます。</p>
+      </div>
+
+      <!--
+        運用メモ：写真を追加/入れ替えるときは .gallery-item を1ブロック複製し、
+        画像パスとalt文字列、data-fullを書き換えるだけでOKです。並び替えはブロックの順番を入れ替えるだけです。
+      -->
+      <div class="gallery-grid reveal" id="gallery-grid">
+        <figure class="gallery-item">
+          <button type="button" data-full="assets/images/gallery/gallery-01.jpg" aria-label="ギャラリー写真1を拡大表示">
+            <img src="assets/images/gallery/gallery-01.jpg" alt="紫色の照明とチュールカーテンの中で振り返るKOYUKI" width="1066" height="1600" loading="lazy">
+          </button>
+        </figure>
+        <figure class="gallery-item">
+          <button type="button" data-full="assets/images/gallery/gallery-02.jpg" aria-label="ギャラリー写真2を拡大表示">
+            <img src="assets/images/gallery/gallery-02.jpg" alt="白いワンピースと帽子姿で寝そべるKOYUKI" width="1066" height="1600" loading="lazy">
+          </button>
+        </figure>
+        <figure class="gallery-item">
+          <button type="button" data-full="assets/images/gallery/gallery-03.jpg" aria-label="ギャラリー写真3を拡大表示">
+            <img src="assets/images/gallery/gallery-03.jpg" alt="赤いドレスで竹林を背景にしたKOYUKI" width="1066" height="1600" loading="lazy">
+          </button>
+        </figure>
+        <figure class="gallery-item">
+          <button type="button" data-full="assets/images/gallery/gallery-04.jpg" aria-label="ギャラリー写真4を拡大表示">
+            <img src="assets/images/gallery/gallery-04.jpg" alt="キャップとジャケットで街に立つKOYUKI" width="1066" height="1600" loading="lazy">
+          </button>
+        </figure>
+        <figure class="gallery-item">
+          <button type="button" data-full="assets/images/gallery/gallery-05.jpg" aria-label="ギャラリー写真5を拡大表示">
+            <img src="assets/images/gallery/gallery-05.jpg" alt="ビーチでいちごのボールを持つKOYUKI" width="1062" height="1600" loading="lazy">
+          </button>
+        </figure>
+        <figure class="gallery-item">
+          <button type="button" data-full="assets/images/gallery/gallery-06.jpg" aria-label="ギャラリー写真6を拡大表示">
+            <img src="assets/images/gallery/gallery-06.jpg" alt="黒いシアートップスでフェンスの前に立つKOYUKI" width="1066" height="1600" loading="lazy">
+          </button>
+        </figure>
+        <figure class="gallery-item">
+          <button type="button" data-full="assets/images/gallery/gallery-07.jpg" aria-label="ギャラリー写真7を拡大表示">
+            <img src="assets/images/gallery/gallery-07.jpg" alt="ドライフラワーを手にしたKOYUKI" width="1066" height="1600" loading="lazy">
+          </button>
+        </figure>
+        <figure class="gallery-item">
+          <button type="button" data-full="assets/images/gallery/gallery-08.jpg" aria-label="ギャラリー写真8を拡大表示">
+            <img src="assets/images/gallery/gallery-08.jpg" alt="ラジオ収録スタジオでヘッドホンをつけるKOYUKI" width="1600" height="1066" loading="lazy">
+          </button>
+        </figure>
+        <figure class="gallery-item">
+          <button type="button" data-full="assets/images/gallery/gallery-09.jpg" aria-label="ギャラリー写真9を拡大表示">
+            <img src="assets/images/gallery/gallery-09.jpg" alt="イベント会場でチェキを構えるKOYUKI" width="1200" height="1600" loading="lazy">
+          </button>
+        </figure>
+        <figure class="gallery-item">
+          <button type="button" data-full="assets/images/gallery/gallery-10.jpg" aria-label="ギャラリー写真10を拡大表示">
+            <img src="assets/images/gallery/gallery-10.jpg" alt="赤いドレスで竹林を背景にしたKOYUKI（別カット）" width="1066" height="1600" loading="lazy">
+          </button>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 6. SNS ============ -->
+  <section class="section" id="sns">
+    <div class="wrap">
+      <div class="section-head center reveal">
+        <span class="eyebrow">FOLLOW ME</span>
+        <h2 class="section-title">SNS</h2>
+      </div>
+      <div class="sns-row reveal">
+        <!-- 各リンクは実際のアカウントURLに差し替えてください -->
+        <a class="sns-icon" href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer" aria-label="Instagram（別タブで開く）">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r="1"/></svg>
+        </a>
+        <a class="sns-icon" href="https://www.tiktok.com/" target="_blank" rel="noopener noreferrer" aria-label="TikTok（別タブで開く）">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M14 4v10.2a3.3 3.3 0 1 1-2.6-3.23V8.6a5.7 5.7 0 1 0 4.9 5.65V9.4a6.6 6.6 0 0 0 3.7 1.13V7.9A4 4 0 0 1 16.4 4Z"/></svg>
+        </a>
+        <a class="sns-icon" href="https://x.com/" target="_blank" rel="noopener noreferrer" aria-label="X（別タブで開く）">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 5l14 14M19 5 5 19"/></svg>
+        </a>
+        <a class="sns-icon" href="https://fanme.jp/" target="_blank" rel="noopener noreferrer" aria-label="FANME（別タブで開く）">
+          <span style="font-family:var(--font-serif); font-weight:700; font-size:.8rem; letter-spacing:.02em;">FAN<br>ME</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 7. Contact ============ -->
+  <section class="section" id="contact">
+    <div class="wrap">
+      <div class="section-head center reveal">
+        <span class="eyebrow">CONTACT</span>
+        <h2 class="section-title">お仕事のご依頼・お問い合わせ</h2>
+        <p class="section-lead center">撮影・出演・イベント・コラボ・その他のご依頼を受け付けております。下記フォームよりお気軽にご連絡ください。</p>
+      </div>
+
+      <form class="glass contact-card reveal" id="contact-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST" novalidate>
+        <!--
+          運用メモ：action の "YOUR_FORM_ID" を、契約したフォーム送信サービス
+          （例：Formspreeで発行されるID）に差し替えてください。詳細はREADMEを参照。
+        -->
+        <div class="form-row">
+          <label for="cf-name">お名前<span class="required">必須</span></label>
+          <input type="text" id="cf-name" name="name" autocomplete="name" required>
+        </div>
+        <div class="form-row">
+          <label for="cf-email">メールアドレス<span class="required">必須</span></label>
+          <input type="email" id="cf-email" name="email" autocomplete="email" required>
+        </div>
+        <div class="form-row">
+          <label for="cf-type">ご依頼内容<span class="required">必須</span></label>
+          <select id="cf-type" name="request_type" required>
+            <option value="">選択してください</option>
+            <option value="撮影">撮影のご依頼</option>
+            <option value="出演">出演のご依頼</option>
+            <option value="イベント">イベントのご依頼</option>
+            <option value="コラボ">コラボのご依頼</option>
+            <option value="その他">その他のお問い合わせ</option>
+          </select>
+        </div>
+        <div class="form-row">
+          <label for="cf-message">本文<span class="required">必須</span></label>
+          <textarea id="cf-message" name="message" required></textarea>
+        </div>
+
+        <!-- スパム対策：ハニーポット（人間には見えないが、Botは埋めてしまう欄） -->
+        <div class="form-row hp-field" aria-hidden="true">
+          <label for="cf-website">Webサイト（入力しないでください）</label>
+          <input type="text" id="cf-website" name="_gotcha" tabindex="-1" autocomplete="off">
+        </div>
+        <!-- スパム対策：フォーム表示時刻を保持し、即時送信（Botに多い挙動）を弾く -->
+        <input type="hidden" name="_loaded_at" id="cf-loaded-at" value="">
+
+        <button type="submit" class="btn btn-solid form-submit">送信する</button>
+        <p class="form-note">送信いただいた内容は、お仕事のご依頼対応以外の目的では使用いたしません。</p>
+        <div class="form-status" id="form-status" role="status" aria-live="polite"></div>
+      </form>
+    </div>
+  </section>
+
+</main>
+
+<!-- ============ 8. Footer ============ -->
+<footer class="site-footer">
+  <div class="wrap">
+    <a href="#top" class="logo">
+      <span class="logo-main">KOYUKI</span>
+      <span class="logo-sub">Official Site</span>
+    </a>
+    <nav class="footer-nav" aria-label="フッターナビゲーション">
+      <a href="#top">HOME</a>
+      <a href="#about">ABOUT</a>
+      <a href="#works">WORKS</a>
+      <a href="#gallery">GALLERY</a>
+      <a href="news.html">NEWS</a>
+      <a href="#contact">CONTACT</a>
+    </nav>
+    <div class="sns-row">
+      <a class="sns-icon" href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer" aria-label="Instagram（別タブで開く）">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r="1"/></svg>
+      </a>
+      <a class="sns-icon" href="https://www.tiktok.com/" target="_blank" rel="noopener noreferrer" aria-label="TikTok（別タブで開く）">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M14 4v10.2a3.3 3.3 0 1 1-2.6-3.23V8.6a5.7 5.7 0 1 0 4.9 5.65V9.4a6.6 6.6 0 0 0 3.7 1.13V7.9A4 4 0 0 1 16.4 4Z"/></svg>
+      </a>
+      <a class="sns-icon" href="https://x.com/" target="_blank" rel="noopener noreferrer" aria-label="X（別タブで開く）">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 5l14 14M19 5 5 19"/></svg>
+      </a>
+      <a class="sns-icon" href="https://fanme.jp/" target="_blank" rel="noopener noreferrer" aria-label="FANME（別タブで開く）">
+        <span style="font-family:var(--font-serif); font-weight:700; font-size:.62rem;">FANME</span>
+      </a>
+    </div>
+    <p class="copyright">© 2026 KOYUKI. All Rights Reserved.</p>
+  </div>
+</footer>
+
+<button class="back-to-top glass" id="back-to-top" aria-label="ページの先頭へ戻る">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
+</button>
+
+<!-- ライトボックス（ギャラリー画像の拡大表示） -->
+<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="写真拡大表示">
+  <button class="lightbox-close" id="lightbox-close" aria-label="閉じる">
+    <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 6l12 12M18 6 6 18"/></svg>
+  </button>
+  <button class="lightbox-prev" id="lightbox-prev" aria-label="前の写真">
+    <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 6l-6 6 6 6"/></svg>
+  </button>
+  <img id="lightbox-img" src="" alt="">
+  <button class="lightbox-next" id="lightbox-next" aria-label="次の写真">
+    <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 6l6 6-6 6"/></svg>
+  </button>
+</div>
+
+<script src="js/main.js"></script>
+<script src="js/gallery.js"></script>
+<script src="js/contact.js"></script>
+</body>
+</html>
