@@ -3,19 +3,24 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>KOYUKI Official Site｜Model・Live Streamer・Digital Creator</title>
-<meta name="description" content="愛知県を拠点に活動するマルチクリエイターKOYUKIの公式サイト。モデル・ライブ配信・イベント出演などの活動経歴、ギャラリー、最新ニュース、お仕事のご依頼はこちらから。">
+<title>KOYUKI Official Site</title>
+<meta name="description" content="愛知県を拠点に活動するマルチクリエイター「こゆき」の公式サイト。モデル・ライブ配信・イベント出演など最新情報を掲載しています。">
 <link rel="canonical" href="https://www.example.com/">
 
-<!-- OGP（SNSでシェアされた際の表示設定。URL/画像は本公開時に差し替えてください） -->
+<!-- OGP（SNSでシェアされた際の表示設定。URLは本公開時にドメインを差し替えてください） -->
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="KOYUKI Official Site">
-<meta property="og:title" content="KOYUKI Official Site｜Model・Live Streamer・Digital Creator">
-<meta property="og:description" content="愛知県を拠点に活動するマルチクリエイターKOYUKIの公式サイト。活動経歴・ギャラリー・最新ニュース・お仕事のご依頼はこちらから。">
+<meta property="og:title" content="KOYUKI Official Site">
+<meta property="og:description" content="愛知県を拠点に活動するマルチクリエイター「こゆき」の公式サイト。モデル・ライブ配信・イベント出演など最新情報を掲載しています。">
 <meta property="og:url" content="https://www.example.com/">
-<meta property="og:image" content="https://www.example.com/assets/ogp-default.jpg">
+<meta property="og:image" content="https://www.example.com/assets/ogp.jpg">
 <meta property="og:locale" content="ja_JP">
+
+<!-- X（Twitter）カード -->
 <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="KOYUKI Official Site">
+<meta name="twitter:description" content="愛知県を拠点に活動するマルチクリエイター「こゆき」の公式サイト。モデル・ライブ配信・イベント出演など最新情報を掲載しています。">
+<meta name="twitter:image" content="https://www.example.com/assets/ogp.jpg">
 
 <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16.png">
@@ -144,7 +149,9 @@
       </div>
       <div class="about-body">
         <span class="eyebrow">ABOUT</span>
-        <h2 class="section-title">About KOYUKI</h2>
+        <h2 class="section-title">こゆき</h2> 
+        <span class="section-subtitle-en">-KOYUKI-</span>
+
         <!--
           運用メモ：ここは文章を差し替えやすいよう、pタグ1つ・pre-lineで
           改行をそのまま反映する構造にしています。文章を直接書き換えるだけでOKです。
@@ -301,68 +308,68 @@
     <div class="wrap">
       <div class="section-head center reveal">
         <span class="eyebrow">GALLERY</span>
-        <h2 class="section-title">Gallery</h2>
-        <span class="section-subtitle-en">Selected Works</span>
-        <p class="section-lead center">これまでの撮影・活動の中から厳選した写真です。写真をクリックすると拡大表示できます。指でスワイプ、またはドラッグして横に流せます。</p>
+        <h2 class="section-title">Portfolio</h2>
+        
+ 
       </div>
     </div>
 
     <!--
       運用メモ：
       ・写真を追加/入れ替えるときは .gallery-item を1ブロック複製し、画像パス・alt文字列・data-fullを書き換えるだけでOKです。
-      ・カードの形は gallery-item--tall（縦長）/ gallery-item--square（正方形）/ gallery-item--wide（横長）の
-        いずれかのclassで決まります。並びに変化をつけたいときはこの3種類を組み合わせてください（省略時は縦長扱い）。
+      ・すべての写真は縦横比4:5・同じ幅と高さに統一表示されます（object-fit:coverで中央基準にトリミング）。
+        個別にサイズを変える必要はありません。
       ・このセクションは自動でゆっくり横に流れる無限ループのカルーセルです。
         表示の複製・自動再生・ドラッグ操作は js/gallery.js が担当しているので、ここでは並べる写真の中身だけ気にすればOKです。
     -->
     <div class="gallery-viewport reveal" id="gallery-viewport">
       <div class="gallery-grid" id="gallery-grid">
-        <figure class="gallery-item gallery-item--tall">
+        <figure class="gallery-item">
           <button type="button" data-full="assets/images/gallery/gallery-01.jpg" aria-label="ギャラリー写真1を拡大表示">
             <img src="assets/images/gallery/gallery-01.jpg" alt="紫色の照明とチュールカーテンの中で振り返るKOYUKI" width="1066" height="1600" loading="lazy">
           </button>
         </figure>
-        <figure class="gallery-item gallery-item--square">
+        <figure class="gallery-item">
           <button type="button" data-full="assets/images/gallery/gallery-02.jpg" aria-label="ギャラリー写真2を拡大表示">
             <img src="assets/images/gallery/gallery-02.jpg" alt="白いワンピースと帽子姿で寝そべるKOYUKI" width="1066" height="1600" loading="lazy">
           </button>
         </figure>
-        <figure class="gallery-item gallery-item--tall">
+        <figure class="gallery-item">
           <button type="button" data-full="assets/images/gallery/gallery-03.jpg" aria-label="ギャラリー写真3を拡大表示">
             <img src="assets/images/gallery/gallery-03.jpg" alt="赤いドレスで竹林を背景にしたKOYUKI" width="1066" height="1600" loading="lazy">
           </button>
         </figure>
-        <figure class="gallery-item gallery-item--wide">
+        <figure class="gallery-item">
           <button type="button" data-full="assets/images/gallery/gallery-04.jpg" aria-label="ギャラリー写真4を拡大表示">
             <img src="assets/images/gallery/gallery-04.jpg" alt="キャップとジャケットで街に立つKOYUKI" width="1066" height="1600" loading="lazy">
           </button>
         </figure>
-        <figure class="gallery-item gallery-item--tall">
+        <figure class="gallery-item">
           <button type="button" data-full="assets/images/gallery/gallery-05.jpg" aria-label="ギャラリー写真5を拡大表示">
             <img src="assets/images/gallery/gallery-05.jpg" alt="ビーチでいちごのボールを持つKOYUKI" width="1062" height="1600" loading="lazy">
           </button>
         </figure>
-        <figure class="gallery-item gallery-item--square">
+        <figure class="gallery-item">
           <button type="button" data-full="assets/images/gallery/gallery-06.jpg" aria-label="ギャラリー写真6を拡大表示">
             <img src="assets/images/gallery/gallery-06.jpg" alt="黒いシアートップスでフェンスの前に立つKOYUKI" width="1066" height="1600" loading="lazy">
           </button>
         </figure>
-        <figure class="gallery-item gallery-item--tall">
+        <figure class="gallery-item">
           <button type="button" data-full="assets/images/gallery/gallery-07.jpg" aria-label="ギャラリー写真7を拡大表示">
             <img src="assets/images/gallery/gallery-07.jpg" alt="ドライフラワーを手にしたKOYUKI" width="1066" height="1600" loading="lazy">
           </button>
         </figure>
-        <figure class="gallery-item gallery-item--wide">
+        <figure class="gallery-item">
           <button type="button" data-full="assets/images/gallery/gallery-08.jpg" aria-label="ギャラリー写真8を拡大表示">
             <img src="assets/images/gallery/gallery-08.jpg" alt="ラジオ収録スタジオでヘッドホンをつけるKOYUKI" width="1600" height="1066" loading="lazy">
           </button>
         </figure>
-        <figure class="gallery-item gallery-item--tall">
+        <figure class="gallery-item">
           <button type="button" data-full="assets/images/gallery/gallery-09.jpg" aria-label="ギャラリー写真9を拡大表示">
             <img src="assets/images/gallery/gallery-09.jpg" alt="イベント会場でチェキを構えるKOYUKI" width="1200" height="1600" loading="lazy">
           </button>
         </figure>
-        <figure class="gallery-item gallery-item--square">
+        <figure class="gallery-item">
           <button type="button" data-full="assets/images/gallery/gallery-10.jpg" aria-label="ギャラリー写真10を拡大表示">
             <img src="assets/images/gallery/gallery-10.jpg" alt="赤いドレスで竹林を背景にしたKOYUKI（別カット）" width="1066" height="1600" loading="lazy">
           </button>
@@ -380,17 +387,17 @@
       </div>
       <div class="sns-row reveal">
         <!-- 各リンクは実際のアカウントURLに差し替えてください -->
-        <a class="sns-icon" href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer" aria-label="Instagram（別タブで開く）">
+        <a class="sns-icon" href="https://www.instagram.com/yuki.k_m22?igsh=MTdvazQ3dnhlYTl1aw%3D%3D&utm_source=qr" target="_blank" rel="noopener noreferrer" aria-label="Instagram（別タブで開く）">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r="1"/></svg>
         </a>
-        <a class="sns-icon" href="https://www.tiktok.com/" target="_blank" rel="noopener noreferrer" aria-label="TikTok（別タブで開く）">
+        <a class="sns-icon" href="https://www.tiktok.com/@koyuki_chi22?_r=1&_t=ZS-98GyPMw0ooH" target="_blank" rel="noopener noreferrer" aria-label="TikTok（別タブで開く）">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M14 4v10.2a3.3 3.3 0 1 1-2.6-3.23V8.6a5.7 5.7 0 1 0 4.9 5.65V9.4a6.6 6.6 0 0 0 3.7 1.13V7.9A4 4 0 0 1 16.4 4Z"/></svg>
         </a>
-        <a class="sns-icon" href="https://x.com/" target="_blank" rel="noopener noreferrer" aria-label="X（別タブで開く）">
+        <a class="sns-icon" href="https://x.com/koyuki_chi22?s=11" target="_blank" rel="noopener noreferrer" aria-label="X（別タブで開く）">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 5l14 14M19 5 5 19"/></svg>
         </a>
-        <a class="sns-icon" href="https://fanme.jp/" target="_blank" rel="noopener noreferrer" aria-label="FANME（別タブで開く）">
-          <span style="font-family:var(--font-serif); font-weight:700; font-size:.8rem; letter-spacing:.02em;">FAN<br>ME</span>
+        <a class="sns-icon sns-icon-fanme" href="https://fanme.link/@yuki.k_m22" target="_blank" rel="noopener noreferrer" aria-label="FANME（別タブで開く）">
+          <span>FANME</span>
         </a>
       </div>
     </div>
@@ -401,8 +408,8 @@
     <div class="wrap">
       <div class="section-head center reveal">
         <span class="eyebrow">CONTACT</span>
-        <h2 class="section-title">お仕事のご依頼・お問い合わせ</h2>
-        <p class="section-lead center">撮影・出演・イベント・コラボ・その他のご依頼を受け付けております。下記フォームよりお気軽にご連絡ください。</p>
+        <h2 class="section-title">お仕事のご依頼<br>お問い合わせ</h2>
+        <p class="section-lead center">撮影・出演・イベント・コラボ・その他のご依頼を受け付けております。<br>下記フォームよりお気軽にご連絡ください。</p>
       </div>
 
       <!--
@@ -460,16 +467,16 @@
       <a href="#contact">CONTACT</a>
     </nav>
     <div class="sns-row">
-      <a class="sns-icon" href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer" aria-label="Instagram（別タブで開く）">
+      <a class="sns-icon" href="https://www.instagram.com/yuki.k_m22?igsh=MTdvazQ3dnhlYTl1aw%3D%3D&utm_source=qr" target="_blank" rel="noopener noreferrer" aria-label="Instagram（別タブで開く）">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r="1"/></svg>
       </a>
-      <a class="sns-icon" href="https://www.tiktok.com/" target="_blank" rel="noopener noreferrer" aria-label="TikTok（別タブで開く）">
+      <a class="sns-icon" href="https://www.tiktok.com/@koyuki_chi22?_r=1&_t=ZS-98GyPMw0ooH" target="_blank" rel="noopener noreferrer" aria-label="TikTok（別タブで開く）">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M14 4v10.2a3.3 3.3 0 1 1-2.6-3.23V8.6a5.7 5.7 0 1 0 4.9 5.65V9.4a6.6 6.6 0 0 0 3.7 1.13V7.9A4 4 0 0 1 16.4 4Z"/></svg>
       </a>
-      <a class="sns-icon" href="https://x.com/" target="_blank" rel="noopener noreferrer" aria-label="X（別タブで開く）">
+      <a class="sns-icon" href="https://x.com/koyuki_chi22?s=11" target="_blank" rel="noopener noreferrer" aria-label="X（別タブで開く）">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 5l14 14M19 5 5 19"/></svg>
       </a>
-      <a class="sns-icon" href="https://fanme.jp/" target="_blank" rel="noopener noreferrer" aria-label="FANME（別タブで開く）">
+      <a class="sns-icon" href="https://fanme.link/@yuki.k_m22" target="_blank" rel="noopener noreferrer" aria-label="FANME（別タブで開く）">
         <span style="font-family:var(--font-serif); font-weight:700; font-size:.62rem;">FANME</span>
       </a>
     </div>

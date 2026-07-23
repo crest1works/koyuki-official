@@ -461,7 +461,17 @@ textarea:focus-visible {
 .about-photo img { width: 100%; height: 100%; object-fit: cover; }
 
 .about-body .eyebrow { margin-bottom: 6px; }
-.about-body h2 { margin-bottom: 24px; }
+/* 「こゆき」の直後に「-KOYUKI-」（.section-subtitle-en）が続く構成のため、
+   見出し自体の余白は最小限にし（本文との間隔は下のsubtitle-enが担う）、
+   タイトルとサブタイトルは近い間隔で表示されるようにする */
+.about-body h2 { margin-bottom: 4px; }
+/* 共通の .section-subtitle-en は変更せず、About限定でサブタイトルの見た目と
+   本文(.lead)との余白だけを上書きする */
+.about-body .section-subtitle-en {
+  margin-top: 0;
+  margin-bottom: 24px;
+  color: var(--lavender-300);
+}
 .about-body .lead {
   font-size: 1.02rem;
   color: var(--ink-700);
@@ -695,6 +705,7 @@ textarea:focus-visible {
   position: relative;
   flex: 0 0 auto;
   height: var(--gallery-card-h);
+  aspect-ratio: 4 / 5;
   border-radius: var(--radius-lg);
   overflow: hidden;
   background: var(--glass-bg);
@@ -703,9 +714,6 @@ textarea:focus-visible {
   scroll-snap-align: start;
   transition: transform 0.5s var(--ease), box-shadow 0.5s var(--ease);
 }
-.gallery-item--tall   { aspect-ratio: 2 / 3; }
-.gallery-item--square { aspect-ratio: 1 / 1; }
-.gallery-item--wide   { aspect-ratio: 4 / 3; }
 
 .gallery-item:hover {
   transform: translateY(-4px);
@@ -725,7 +733,7 @@ textarea:focus-visible {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: center 25%;
+  object-position: center;
   display: block;
   -webkit-user-drag: none;
   user-select: none;
@@ -925,6 +933,17 @@ a.news-index-item:focus-visible .news-link-indicator {
 .sns-icon svg { width: 24px; height: 24px; }
 .sns-icon:hover { transform: translateY(-4px) scale(1.05); background: var(--lavender-500); color: #fff; }
 
+/* FANMEアイコンはロゴマークの代わりに文字（FANME）を1行で円の中央に表示する。
+   Instagram/TikTok/Xのアイコンと大きさ・余白の見え方を揃えるための専用調整 */
+.sns-icon-fanme span {
+  font-family: var(--font-serif);
+  font-weight: 700;
+  font-size: 0.72rem;
+  letter-spacing: -0.02em;
+  line-height: 1;
+  white-space: nowrap;
+}
+
 /* 11) Contact ----------------------------------------------------- */
 /* 送信完了ページ（thanks.html） */
 .thanks-head { padding: 40px 0 80px; }
@@ -1068,6 +1087,14 @@ a.news-index-item:focus-visible .news-link-indicator {
   .wrap { padding: 0 18px; }
   .hero-copy h1 { font-size: 3rem; }
   .hero-news-card { padding: 20px; }
+
+  /* スマホ表示のみ：人物（顔〜上半身）がテキストと重ならず、右端で切れすぎない位置に調整 */
+  .hero-bg img { object-position: 82% 8%; }
+  /* スマホ表示のみ：セクション高を約12%低くし、ファーストビールでNEWSカードの先頭が
+     見えつつ最下部は次のセクションの手前でわずかに隠れる程度に調整（文字サイズ・ボタンの
+     余白は変更せず、NEWSカード内の縦スクロール領域だけを少し詰めています） */
+  .hero { min-height: 88svh; }
+  .hero-news-list { max-height: 190px; }
   .about-meta { gap: 24px; }
   #gallery { --gallery-card-h: 250px; --gallery-gap: 12px; }
   .gallery-viewport { padding-left: 18px; padding-right: 18px; }
