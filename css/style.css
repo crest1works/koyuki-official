@@ -1074,7 +1074,20 @@ a.news-index-item:focus-visible .news-link-indicator {
   .main-nav a { width: 100%; padding: 18px 24px; border-bottom: 1px solid var(--lavender-50); }
   .nav-toggle { display: flex; }
 
-  .works-categories { gap: 32px; }
+  /* スマホ〜タブレット幅では3項目が折り返して縦に並ぶ。
+     親コンテナ(.works-categories)を最も幅の広い項目（Live Streamer）にfit-contentで
+     幅を合わせたうえでmargin-inline:autoで画面中央に配置し、align-items:stretchで
+     3項目すべてをその幅に揃える。これにより、
+     ・グループ全体（アイコン＋文章）が画面中央に配置される
+     ・3項目のアイコンの左端は常に縦一直線に揃う
+     を、個別要素をずらすことなく親コンテナの幅・配置だけで実現している */
+  .works-categories {
+    flex-direction: column;
+    align-items: stretch;
+    width: fit-content;
+    margin-inline: auto;
+    gap: 28px;
+  }
   .year-tabs { gap: 8px; }
   .year-tab { padding: 9px 20px; font-size: 0.92rem; }
   .timeline { padding-left: 22px; }
