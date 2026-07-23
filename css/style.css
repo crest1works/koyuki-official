@@ -123,6 +123,19 @@ textarea:focus-visible {
 }
 
 /* 3) ユーティリティ ------------------------------------------- */
+/* 画面には表示せず、スクリーンリーダーにだけ伝える文言用 */
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
 .wrap {
   width: 100%;
   max-width: var(--container);
@@ -507,6 +520,54 @@ textarea:focus-visible {
   margin-top: 2px;
 }
 
+/* 年代タブ（活動経歴はこの年タブで切り替える） */
+.year-tabs-wrap { display: flex; justify-content: center; }
+.year-tabs {
+  display: flex;
+  gap: 10px;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  max-width: 100%;
+  padding: 4px 4px 12px;
+  margin-bottom: 8px;
+  scrollbar-width: none;
+  -webkit-overflow-scrolling: touch;
+}
+.year-tabs::-webkit-scrollbar { display: none; }
+
+.year-tab {
+  flex: 0 0 auto;
+  padding: 10px 26px;
+  border-radius: var(--radius-pill);
+  border: 1px solid var(--lavender-200);
+  background: var(--glass-bg);
+  backdrop-filter: var(--glass-blur);
+  font-family: var(--font-serif);
+  font-size: 1rem;
+  letter-spacing: 0.06em;
+  color: var(--ink-500);
+  transition: background var(--dur) var(--ease), color var(--dur) var(--ease), border-color var(--dur) var(--ease);
+}
+.year-tab:hover { border-color: var(--lavender-400); color: var(--lavender-600); }
+.year-tab[aria-selected="true"] {
+  background: var(--lavender-100);
+  border-color: var(--lavender-300);
+  color: var(--lavender-700);
+}
+.year-tab:focus-visible {
+  outline: 2px solid var(--lavender-400);
+  outline-offset: 2px;
+}
+
+/* 年ごとの経歴パネル：選択中の1年分だけを表示し、フェードで切り替える */
+.year-panels { position: relative; }
+.year-panel[hidden] { display: none; }
+.year-panel {
+  opacity: 0;
+  transition: opacity 0.22s var(--ease);
+}
+.year-panel.is-active { opacity: 1; }
+
 /* 年表（タイムライン） */
 .timeline {
   position: relative;
@@ -514,24 +575,6 @@ textarea:focus-visible {
   margin: 0 auto;
   padding-left: 28px;
   border-left: 1px solid var(--lavender-200);
-}
-.timeline-year {
-  font-family: var(--font-serif);
-  font-size: 1.6rem;
-  color: var(--lavender-500);
-  margin: 48px 0 20px;
-  position: relative;
-}
-.timeline-year:first-child { margin-top: 0; }
-.timeline-year::before {
-  content: "";
-  position: absolute;
-  left: -33px;
-  top: 8px;
-  width: 10px;
-  height: 10px;
-  border-radius: 50%;
-  background: var(--lavender-500);
 }
 
 .timeline-item {
@@ -566,10 +609,16 @@ textarea:focus-visible {
 .timeline-item p { color: var(--ink-500); font-size: 0.92rem; }
 
 /* 8) Gallery ------------------------------------------------------ */
-/* ファッション誌のようなMasonry（高さがバラバラの段組み）レイアウト。
-   写真ごとの縦横比をそのまま活かして段組みに流し込むことで、
-   自然に大小のリズムが生まれます。 */
-#gallery { position: relative; overflow: hidden; }
+/* 雑誌のように大小が混ざる横スクロール型のカルーセル。
+   写真ごとに縦長/正方形/横長の枠を割り当て、object-fit: cover で
+   きれいにトリミングしながらリズムのある並びを作ります。
+   自動再生・無限ループ・ドラッグ操作は js/gallery.js が担当します。 */
+#gallery {
+  position: relative;
+  overflow: hidden;
+  --gallery-card-h: 400px;
+  --gallery-gap: 26px;
+}
 
 /* 背景の淡いラベンダーのぼかし（装飾のみ・クリック等には影響しません） */
 #gallery::before,
@@ -599,30 +648,74 @@ textarea:focus-visible {
 }
 #gallery .wrap { position: relative; z-index: 1; }
 
-.gallery-grid {
-  column-count: 4;
-  column-gap: 28px;
+.section-subtitle-en {
+  display: block;
+  margin-top: 4px;
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: 0.86rem;
+  letter-spacing: 0.14em;
+  color: var(--ink-300);
 }
+
+/* 横スクロールの器。.wrapと左端を揃えつつ、右側は画面外へ流れ出させることで
+   「次の写真が少し見える」状態を作ります（右側に余分な余白は付けません）。 */
+.gallery-viewport {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  overflow-x: auto;
+  overflow-y: hidden;
+  -webkit-overflow-scrolling: touch;
+  scroll-snap-type: x proximity;
+  overscroll-behavior-x: contain;
+  cursor: grab;
+  padding: 6px max(24px, calc((100vw - var(--container)) / 2 + 24px)) 6px
+           max(24px, calc((100vw - var(--container)) / 2 + 24px));
+  scrollbar-width: none;
+  /* スクロール中に写真が毎フレーム再ラスタライズされてブレて見えるのを防ぐ
+     （スクロールが起きることを先にブラウザへ伝えておき、専用レイヤーを用意させる） */
+  will-change: scroll-position;
+}
+.gallery-viewport::-webkit-scrollbar { display: none; }
+.gallery-viewport.is-dragging {
+  cursor: grabbing;
+  scroll-snap-type: none;
+  scroll-behavior: auto;
+}
+
+.gallery-grid {
+  display: flex;
+  align-items: center;
+  gap: var(--gallery-gap);
+  width: max-content;
+}
+
 .gallery-item {
   position: relative;
-  display: block;
-  break-inside: avoid;
-  margin: 0 0 28px;
+  flex: 0 0 auto;
+  height: var(--gallery-card-h);
   border-radius: var(--radius-lg);
   overflow: hidden;
   background: var(--glass-bg);
   border: 1px solid rgba(255, 255, 255, 0.6);
   box-shadow: 0 18px 40px rgba(122, 94, 173, 0.14);
-  transition: transform 0.8s var(--ease), box-shadow 0.8s var(--ease);
+  scroll-snap-align: start;
+  transition: transform 0.5s var(--ease), box-shadow 0.5s var(--ease);
 }
+.gallery-item--tall   { aspect-ratio: 2 / 3; }
+.gallery-item--square { aspect-ratio: 1 / 1; }
+.gallery-item--wide   { aspect-ratio: 4 / 3; }
+
 .gallery-item:hover {
-  transform: translateY(-3px) scale(1.025);
+  transform: translateY(-4px);
   box-shadow: 0 26px 55px rgba(122, 94, 173, 0.22);
   z-index: 2;
 }
 .gallery-item button {
   display: block;
   width: 100%;
+  height: 100%;
   border: 0;
   background: transparent;
   padding: 0;
@@ -630,9 +723,19 @@ textarea:focus-visible {
 }
 .gallery-item img {
   width: 100%;
-  height: auto;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 25%;
   display: block;
+  -webkit-user-drag: none;
+  user-select: none;
+  /* 角丸クリップ＋横スクロールの組み合わせで、スクロール中に画像がブレて
+     見えることがあるため、画像を独立したGPUレイヤーに昇格させて滑らかにする */
+  transform: translateZ(0);
+  backface-visibility: hidden;
 }
+/* ドラッグ中はテキスト選択やゴースト画像を防ぐ */
+.gallery-viewport.is-dragging .gallery-item img { pointer-events: none; }
 
 /* Lightbox */
 .lightbox {
@@ -703,19 +806,66 @@ textarea:focus-visible {
   color: #fff;
 }
 
-.news-index-list { display: flex; flex-direction: column; gap: 20px; }
+/* 画像を持たない、テキストのみのシンプルな一覧行 */
+.news-index-list { display: flex; flex-direction: column; gap: 18px; }
 .news-index-item {
   display: grid;
-  grid-template-columns: 160px 1fr;
-  gap: 24px;
-  padding: 20px;
+  grid-template-columns: 170px 1fr auto;
   align-items: center;
+  gap: 20px 28px;
+  padding: 30px 34px;
+  transition: background var(--dur) var(--ease), border-color var(--dur) var(--ease), box-shadow var(--dur) var(--ease);
 }
 .news-index-item.is-hidden { display: none; }
-.news-index-item .thumb { border-radius: var(--radius-sm); overflow: hidden; aspect-ratio: 3/2; }
-.news-index-item .thumb img { width: 100%; height: 100%; object-fit: cover; }
-.news-index-item h2 { font-size: 1.05rem; margin: 8px 0; }
-.news-index-item .date { font-size: 0.78rem; color: var(--ink-500); }
+.news-index-item .date {
+  font-family: var(--font-serif);
+  font-size: 0.85rem;
+  letter-spacing: 0.05em;
+  color: var(--ink-500);
+}
+.news-index-item h2 {
+  font-size: 1.08rem;
+  margin: 0;
+  transition: color var(--dur) var(--ease);
+}
+
+/* リンクがある記事：カード全体がクリック可能。ホバー/フォーカスでタイトルが淡いラベンダーに */
+a.news-index-item:hover,
+a.news-index-item:focus-visible {
+  border-color: var(--lavender-300);
+  box-shadow: var(--shadow-card);
+}
+a.news-index-item:hover h2,
+a.news-index-item:focus-visible h2 { color: var(--lavender-600); }
+
+.news-link-indicator {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: 1px solid var(--lavender-200);
+  color: var(--lavender-500);
+  transition: background var(--dur) var(--ease), border-color var(--dur) var(--ease), color var(--dur) var(--ease), transform var(--dur) var(--ease);
+}
+.news-link-indicator svg { width: 15px; height: 15px; }
+.news-link-indicator--internal {
+  width: auto;
+  height: auto;
+  padding: 8px 16px;
+  border-radius: var(--radius-pill);
+  font-family: var(--font-serif);
+  font-size: 0.8rem;
+  white-space: nowrap;
+}
+a.news-index-item:hover .news-link-indicator,
+a.news-index-item:focus-visible .news-link-indicator {
+  background: var(--lavender-100);
+  border-color: var(--lavender-300);
+  color: var(--lavender-700);
+  transform: translate(1px, -1px);
+}
 
 .news-empty {
   text-align: center;
@@ -725,17 +875,16 @@ textarea:focus-visible {
 }
 .news-empty.show { display: block; }
 
-/* NEWS詳細ページ */
-.article-header { max-width: 760px; margin: 0 auto 32px; text-align: center; }
+/* NEWS詳細ページ：画像を持たない、お知らせページとしてのシンプルな構成 */
+.article-header {
+  max-width: 700px;
+  margin: 0 auto 48px;
+  padding-bottom: 36px;
+  text-align: center;
+  border-bottom: 1px solid var(--lavender-100);
+}
 .article-header .date { color: var(--ink-500); font-size: 0.85rem; }
 .article-header h1 { margin-top: 14px; font-size: clamp(1.5rem, 3vw, 2rem); }
-.article-thumb {
-  max-width: 900px;
-  margin: 0 auto 40px;
-  border-radius: var(--radius-lg);
-  overflow: hidden;
-  box-shadow: var(--shadow-soft);
-}
 .article-body {
   max-width: 700px;
   margin: 0 auto;
@@ -743,6 +892,8 @@ textarea:focus-visible {
   font-size: 1rem;
 }
 .article-body p + p { margin-top: 1.4em; }
+.article-link { margin-top: 1.8em; }
+.article-link svg { flex-shrink: 0; }
 .article-nav {
   max-width: 700px;
   margin: 56px auto 0;
@@ -775,6 +926,10 @@ textarea:focus-visible {
 .sns-icon:hover { transform: translateY(-4px) scale(1.05); background: var(--lavender-500); color: #fff; }
 
 /* 11) Contact ----------------------------------------------------- */
+/* 送信完了ページ（thanks.html） */
+.thanks-head { padding: 40px 0 80px; }
+.thanks-back { margin-top: 32px; }
+
 .contact-card {
   max-width: 720px;
   margin: 0 auto;
@@ -834,17 +989,6 @@ textarea:focus-visible {
   text-align: center;
 }
 
-.form-status {
-  margin-top: 20px;
-  padding: 16px 20px;
-  border-radius: var(--radius-sm);
-  font-size: 0.9rem;
-  display: none;
-}
-.form-status.show { display: block; }
-.form-status.success { background: #eaf6ee; color: #2f7a4a; }
-.form-status.error { background: #fbeaea; color: #a63a3a; }
-
 /* 12) Footer -------------------------------------------------------- */
 .site-footer {
   padding: 56px 0 32px;
@@ -889,7 +1033,7 @@ textarea:focus-visible {
 @media (max-width: 1080px) {
   .about-grid { grid-template-columns: 1fr; }
   .about-photo { max-width: 420px; margin: 0 auto; }
-  .gallery-grid { column-count: 3; }
+  #gallery { --gallery-card-h: 340px; --gallery-gap: 22px; }
 }
 
 @media (max-width: 860px) {
@@ -912,10 +1056,11 @@ textarea:focus-visible {
   .nav-toggle { display: flex; }
 
   .works-categories { gap: 32px; }
+  .year-tabs { gap: 8px; }
+  .year-tab { padding: 9px 20px; font-size: 0.92rem; }
   .timeline { padding-left: 22px; }
-  .gallery-grid { column-count: 2; column-gap: 18px; }
-  .gallery-item { margin-bottom: 18px; }
-  .news-index-item { grid-template-columns: 110px 1fr; padding: 14px; }
+  #gallery { --gallery-card-h: 300px; --gallery-gap: 16px; }
+  .news-index-item { grid-template-columns: auto 1fr auto; padding: 24px 26px; gap: 14px 20px; }
   .contact-card { padding: 32px 24px; }
 }
 
@@ -924,7 +1069,19 @@ textarea:focus-visible {
   .hero-copy h1 { font-size: 3rem; }
   .hero-news-card { padding: 20px; }
   .about-meta { gap: 24px; }
-  .gallery-grid { column-gap: 12px; }
-  .gallery-item { margin-bottom: 12px; border-radius: var(--radius-md); }
+  #gallery { --gallery-card-h: 250px; --gallery-gap: 12px; }
+  .gallery-viewport { padding-left: 18px; padding-right: 18px; }
+  .gallery-item { border-radius: var(--radius-md); }
   .lightbox-prev, .lightbox-next { width: 40px; height: 40px; }
+
+  /* NEWS：日付＋リンクアイコンを1行目、タイトルを2行目に積む */
+  .news-index-item {
+    grid-template-columns: 1fr auto;
+    grid-template-areas: "date icon" "title title";
+    padding: 22px 20px;
+    row-gap: 10px;
+  }
+  .news-index-item .date { grid-area: date; }
+  .news-index-item .news-link-indicator { grid-area: icon; }
+  .news-index-item h2 { grid-area: title; font-size: 1rem; }
 }

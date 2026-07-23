@@ -10,18 +10,25 @@
 
   2. ファイル内の【】で囲まれた部分をすべて書き換える
      - 【記事タイトル】       … 見出しになる文章
-     - 【日付】               … 2026.08.01 のような表示用の日付
+     - 【日付】               … 2026.08.01 のような表示用の日付（期間の場合は「2026.08.01 - 2026.08.03」のように）
      - 【日付-ハイフン形式】  … 2026-08-01 のような公開日（メタ情報用）
      - 【タグ】               … Model / Live / Event / Media / Other のいずれか
                                  （style.cssの .tag-model など、対応するclass名も変更）
-     - 【本文】               … お知らせの本文（pタグで段落を分ける）
-     - 画像パス               … assets/images/news/ に新しい画像を置いて差し替える
+     - 【本文】               … お知らせの本文（pタグで段落を分ける）。ブログ調・日記調にはせず、
+                                 ニュースリリースのように簡潔で客観的な文章にする
+     - og:image               … assets/images/news/ に用意した画像があれば差し替える（SNSシェア時のみに使用。
+                                 記事ページ本文には画像を表示しません）
 
-  3. できあがったら、以下の2箇所にもこの記事へのリンクを追加する
+  3. 外部サイト（FANMEなど）へのリンクがある記事は、本文の最後に【CTAボタン】の
+     ブロック（コメントアウトを外して使う）でリンクを設置する。リンクが無い記事は
+     このブロックごと削除してよい。
+
+  4. できあがったら、以下の2箇所にもこの記事へのリンクを追加する
      - index.html のHero内NEWS（横スクロールのカルーセル。件数が多い場合は古いものを間引いてOK）
-     - news.html   のNEWS一覧（一番上に追加、data-category="model"のようにカテゴリを指定）
+     - news.html   のNEWS一覧（一番上に追加、data-category="model"のようにカテゴリを指定。
+       CTAリンクがある記事のみ .news-link-indicator（外部リンクアイコン）も付ける）
 
-  4. 最後にFTP（FileZilla）でファイルをアップロードすれば公開完了です。
+  5. 最後にFTP（FileZilla）でファイルをアップロードすれば公開完了です。
 
   ※ タグの色は css/style.css の「タグ（カテゴリ）カラー」の項目で
     一括管理されているので、ここでは触る必要はありません。
@@ -41,7 +48,7 @@
 <meta property="og:title" content="【記事タイトル】">
 <meta property="og:description" content="【本文の要約を1〜2文で】">
 <meta property="og:url" content="https://www.example.com/news/【ファイル名】.html">
-<meta property="og:image" content="https://www.example.com/assets/images/news/【サムネイル画像】">
+<meta property="og:image" content="https://www.example.com/assets/ogp-default.jpg">
 <meta property="og:locale" content="ja_JP">
 <meta property="article:published_time" content="【日付-ハイフン形式】">
 <meta name="twitter:card" content="summary_large_image">
@@ -88,12 +95,19 @@
         <h1>【記事タイトル】</h1>
       </header>
 
-      <div class="article-thumb reveal in">
-        <img src="../assets/images/news/【サムネイル画像】" alt="【画像の説明】" width="1200" height="800">
-      </div>
-
       <div class="article-body reveal in">
         <p>【本文】</p>
+
+        <!-- 外部リンクがある記事だけ、このブロックのコメントを外して使う（無い記事はこのまま削除） -->
+        <!--
+        <div class="article-link">
+          <a class="btn" href="【リンク先URL】" target="_blank" rel="noopener noreferrer">
+            【CTAボタンの文言】
+            <svg aria-hidden="true" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M9 6h9v9M18 6 7 17"/></svg>
+          </a>
+          <span class="visually-hidden">（外部サイトが新しいタブで開きます）</span>
+        </div>
+        -->
       </div>
 
       <nav class="article-nav reveal in" aria-label="記事内ナビゲーション">

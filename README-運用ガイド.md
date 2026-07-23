@@ -67,31 +67,46 @@ koyuki-site/
 ## 4. About文・活動経歴を編集する
 
 - About文：`index.html` 内 `<p class="lead">` の中身をそのまま書き換えるだけです（改行もそのまま反映されます）
-- 活動経歴（年表）：`index.html` 内 `id="works"` セクションの `<li class="timeline-item glass">` を
-  1ブロックコピーして、日付・タイトル・説明・タグを書き換えれば追加できます
-  新しい年が始まったら `<li class="timeline-year">2027</li>` のように年の見出しごと追加してください
+- 活動経歴：`index.html` 内 `id="works"` セクションは、年タブをクリックするとその年の経歴だけが
+  表示される形式です。既存の年に追加する場合は、対応する `<ol class="year-panel timeline" id="year-panel-20XX">`
+  の中に `<li class="timeline-item glass">` を1ブロックコピーして、日付・タイトル・説明・タグを書き換えれば追加できます
+  新しい年が始まったら、`.year-tabs` 内にタブ（`<button class="year-tab" role="tab" ...>`）と、
+  対応する `.year-panel`（`id`とタブの`aria-controls`を同じ年で対応させる）をセットで追加してください
 
-## 5. お問い合わせフォームについて（重要・公開前に設定が必要です）
+## 5. お問い合わせフォームについて（Netlify Forms）
 
-現在は静的ホスティング（PHPやサーバー処理が使えない環境）を前提に、
-外部フォーム送信サービスと連携する形で組んであります。
+お問い合わせフォームは [Netlify Forms](https://docs.netlify.com/forms/setup/) を利用しています。
+Netlify以外のホスティング（Xserverなどのレンタルサーバー）で公開する場合は動作しませんので、
+その場合はClaude Codeに伝えてください（PHPメール送信スクリプト等への切り替えを行います）。
 
-1. [Formspree](https://formspree.io/)（または類似の静的サイト向けフォームサービス）に登録し、
-   フォーム用のエンドポイントURL（`https://formspree.io/f/xxxxxxxx` の形式）を発行する
-2. `index.html` 内、`<form id="contact-form" action="https://formspree.io/f/YOUR_FORM_ID" ...>` の
-   `YOUR_FORM_ID` の部分を、発行されたIDに書き換える
-3. Formspree側の設定で、送信先メールアドレスを希望のアドレスに設定する
+**Netlifyへデプロイすれば、追加のコード変更なしにそのまま使えます。** 手順は以下の3点のみです。
+
+1. `koyuki-site` フォルダ（このサイト一式）をNetlifyにデプロイする
+   （Netlifyはビルド時にHTML内の `data-netlify="true"` が付いた `<form>` を自動検出し、
+   フォーム送信の受け皿を作成します。特別な設定は不要です）
+2. デプロイ後、Netlifyの管理画面で **Site configuration → Forms → Form notifications** を開き、
+   「Email notification」を追加して、送信内容を受け取りたいメールアドレスを設定する
+3. 実際にフォームから送信してみて、設定したメールアドレスに届くか確認する
+   （Netlifyの管理画面の **Forms** タブでも送信内容の一覧を確認できます）
+
+送信が完了すると `thanks.html`（送信完了ページ）に移動します。文面を変えたい場合は
+`thanks.html`内の文章を直接書き換えてください。
 
 **スパム対策として実装済みのもの：**
-- ハニーポット欄（`name="_gotcha"`）：人には見えないが、Botは自動入力してしまう欄。
-  Formspreeはこの名前の欄を検知して自動的にスパム扱いにします
-- フォーム表示から3秒未満での送信をブロック（Bot対策）
-- 上記に加え、Formspree側の管理画面でreCAPTCHA連携も追加可能です
+- ハニーポット欄（`name="bot-field"`）：人には見えないが、Botは自動入力してしまう欄。
+  `<form>` タグの `netlify-honeypot="bot-field"` と組み合わせて、Netlifyが自動的にスパム扱いにします
+- 上記に加え、Netlifyの管理画面でreCAPTCHA連携（Forms → Form detection）も追加可能です
 
-もしPHP対応の一般的なレンタルサーバー（Xserverなど）を使うことになった場合は、
-Claude Codeに伝えていただければ、同梱のPHPメール送信スクリプトへの切り替えを行います。
+**入力項目を増やしたい場合：** `index.html` 内のContactフォーム（`<form ... name="contact">`）に
+`.form-row` を1ブロック追記し、`<input>` に `name` 属性を付けるだけで、Netlify側でも
+自動的に受信項目に追加されます（Netlify側の追加設定は不要です）。
 
 ## 6. 公開方法（FTPアップロード）
+
+※ お問い合わせフォーム（Netlify Forms）を動かすには、このサイトを **Netlifyでホスティングする必要があります**。
+　 Xserverなど一般的なレンタルサーバーにFTPでアップロードした場合、フォームは送信できません
+　（その場合は5章の案内のとおりClaude Codeにご相談ください）。Netlifyを使う場合は、この章のFTP手順は不要です
+　（Netlifyの管理画面からフォルダをドラッグ＆ドロップするだけで公開できます）。
 
 1. FileZillaでレンタルサーバーに接続する
 2. `koyuki-site` フォルダの中身一式（`index.html` 以下すべて）を、

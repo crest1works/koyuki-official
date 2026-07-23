@@ -73,59 +73,45 @@
       </div>
 
       <!--
-        運用メモ：新しい記事を追加するときは news/_template.html を複製して
-        news/ 配下に記事ページを作成し、このリストの一番上に .news-index-item を
-        1ブロック追記してください（新しい記事が上に来るように）。
-        data-category は model / event / media / fanme / other のいずれかを指定します。
+        運用メモ：
+        ・新しい記事を追加するときは news/_template.html を複製して news/ 配下に記事ページを作成し、
+          このリストの一番上に .news-index-item を1ブロック追記してください（新しい記事が上に来るように）。
+        ・data-category は model / event / media / fanme / other のいずれかを指定します（絞り込みタブ用。画面には表示されません）。
+        ・すべての記事はクリックすると対応する news/xxxx.html の詳細ページに遷移します。
+        ・記事に外部サイト（FANMEなど）へのリンクがある場合は、詳細ページ側の本文末尾に
+          .article-link（外部リンクボタン）を入れてください。その場合、この一覧側の
+          <span class="news-link-indicator">（外部リンクありアイコン）も付けて「リンクあり」が分かるようにします。
+        ・外部リンクが無い記事は news-link-indicator を付けないでください。
       -->
       <div class="news-index-list reveal" id="news-index-list">
         <a class="glass news-index-item" data-category="fanme" href="news/2026-07-fanme-swimwear-event.html">
-          <div class="thumb"><img src="assets/images/news/news-fanme-swimwear-event.svg" alt="FANME水着コレクションイベント" width="1200" height="800" loading="lazy"></div>
-          <div>
-            <span class="date">2026.07.17 - 2026.08.04</span>
-            <span class="tag tag-fanme">FANME</span>
-            <h2>FANME 水着コレクションイベント参加</h2>
-          </div>
+          <span class="date">2026.07.17</span>
+          <h2>FANME 水着コレクションイベント参加</h2>
+          <span class="news-link-indicator" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M9 6h9v9M18 6 7 17"/></svg>
+          </span>
         </a>
         <a class="glass news-index-item" data-category="fanme" href="news/2026-07-fanme-swimwear-gacha.html">
-          <div class="thumb"><img src="assets/images/news/news-fanme-swimwear-gacha.svg" alt="FANME水着コレクションガチャ" width="1200" height="800" loading="lazy"></div>
-          <div>
-            <span class="date">2026.07.16</span>
-            <span class="tag tag-fanme">FANME</span>
-            <h2>FANME 水着コレクションガチャ販売開始</h2>
-          </div>
-        </a>
-        <a class="glass news-index-item" data-category="media" href="news/2026-07-mid-fm761.html">
-          <div class="thumb"><img src="assets/images/news/news-mid-fm761.svg" alt="MID-FM761出演" width="1200" height="800" loading="lazy"></div>
-          <div>
-            <span class="date">2026.07.11</span>
-            <span class="tag tag-media">Media</span>
-            <h2>MID-FM761「しおりが紐解くDEEPな世界」ゲスト出演</h2>
-          </div>
-        </a>
-        <a class="glass news-index-item" data-category="event" href="news/2026-04-squeeze-cheki.html">
-          <div class="thumb"><img src="assets/images/news/news-squeeze-cheki.svg" alt="スクイーズ販売＆チェキ会" width="1200" height="800" loading="lazy"></div>
-          <div>
-            <span class="date">2026.04.25</span>
-            <span class="tag tag-event">Event</span>
-            <h2>スクイーズ販売＆チェキ会 開催</h2>
-          </div>
+          <span class="date">2026.07.17</span>
+          <h2>FANME 水着コレクションガチャ販売開始</h2>
+          <span class="news-link-indicator" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M9 6h9v9M18 6 7 17"/></svg>
+          </span>
         </a>
         <a class="glass news-index-item" data-category="model" href="news/2026-04-sakuhin-damashii.html">
-          <div class="thumb"><img src="assets/images/news/news-sakuhin-damashii.svg" alt="さくひん魂展示" width="1200" height="800" loading="lazy"></div>
-          <div>
-            <span class="date">2026.04.17</span>
-            <span class="tag tag-model">Model</span>
-            <h2>展示企画「さくひん魂」展示モデル参加</h2>
-          </div>
+          <span class="date">2026.04.17 - 2026.04.19</span>
+          <h2>展示企画「さくひん魂」展示モデル参加</h2>
         </a>
         <a class="glass news-index-item" data-category="model" href="news/2026-04-ok-boomer.html">
-          <div class="thumb"><img src="assets/images/news/news-ok-boomer.svg" alt="OK boomer展示" width="1200" height="800" loading="lazy"></div>
-          <div>
-            <span class="date">2026.04.06</span>
-            <span class="tag tag-model">Model</span>
-            <h2>展示企画「OK boomer」展示モデル参加</h2>
-          </div>
+          <span class="date">2026.04.06 - 2026.04.12</span>
+          <h2>展示企画「OK boomer」展示モデル参加</h2>
+        </a>
+        <a class="glass news-index-item" data-category="fanme" href="news/2026-03-fanme-media-interview.html">
+          <span class="date">2026.03.18</span>
+          <h2>FANME MEDIA にてインタビュー記事公開</h2>
+          <span class="news-link-indicator" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M9 6h9v9M18 6 7 17"/></svg>
+          </span>
         </a>
       </div>
       <p class="news-empty" id="news-empty">このカテゴリの記事はまだありません。</p>

@@ -88,50 +88,45 @@
       <aside class="glass hero-news-card reveal in" aria-label="最新ニュース">
         <h2>NEWS</h2>
         <!--
-          運用メモ：記事を追加するときは .hero-news-list 内に <li> を1件（先頭に）追記するだけでOKです。
-          表示領域の高さは固定で、件数が増えても内部だけ縦スクロールするため、Heroの高さは変わりません。
+          運用メモ：
+          ・記事を追加するときは .hero-news-list 内に <li> を1件（先頭に）追記するだけでOKです。
+            表示領域の高さは固定で、件数が増えても内部だけ縦スクロールするため、Heroの高さは変わりません。
+          ・news.html側の一覧と同じ内容・同じ並び順・同じリンク先（news/xxxx.html）にしてください。
         -->
         <ul class="hero-news-list" tabindex="0" role="list" aria-label="最新ニュース一覧（縦にスクロールできます）">
           <li>
             <a href="news/2026-07-fanme-swimwear-event.html">
-              <span class="date">2026.07.17 - 2026.08.04</span>
+              <span class="date">2026.07.17</span>
               <span class="tag tag-fanme">FANME</span>
               <span class="title">FANME 水着コレクションイベント参加</span>
             </a>
           </li>
           <li>
             <a href="news/2026-07-fanme-swimwear-gacha.html">
-              <span class="date">2026.07.16</span>
+              <span class="date">2026.07.17</span>
               <span class="tag tag-fanme">FANME</span>
               <span class="title">FANME 水着コレクションガチャ販売開始</span>
             </a>
           </li>
           <li>
-            <a href="news/2026-07-mid-fm761.html">
-              <span class="date">2026.07.11</span>
-              <span class="tag tag-media">Media</span>
-              <span class="title">MID-FM761「しおりが紐解くDEEPな世界」ゲスト出演</span>
-            </a>
-          </li>
-          <li>
-            <a href="news/2026-04-squeeze-cheki.html">
-              <span class="date">2026.04.25</span>
-              <span class="tag tag-event">Event</span>
-              <span class="title">スクイーズ販売＆チェキ会 開催</span>
-            </a>
-          </li>
-          <li>
             <a href="news/2026-04-sakuhin-damashii.html">
-              <span class="date">2026.04.17</span>
+              <span class="date">2026.04.17 - 2026.04.19</span>
               <span class="tag tag-model">Model</span>
               <span class="title">展示企画「さくひん魂」展示モデル参加</span>
             </a>
           </li>
           <li>
             <a href="news/2026-04-ok-boomer.html">
-              <span class="date">2026.04.06</span>
+              <span class="date">2026.04.06 - 2026.04.12</span>
               <span class="tag tag-model">Model</span>
               <span class="title">展示企画「OK boomer」展示モデル参加</span>
+            </a>
+          </li>
+          <li>
+            <a href="news/2026-03-fanme-media-interview.html">
+              <span class="date">2026.03.18</span>
+              <span class="tag tag-fanme">FANME</span>
+              <span class="title">FANME MEDIA にてインタビュー記事公開</span>
             </a>
           </li>
         </ul>
@@ -199,137 +194,175 @@
       </div>
 
       <!--
-        運用メモ：経歴を追加するときは、対象の年の直下に
-        .timeline-item をコピーして日付・タイトル・説明・タグ(class="tag tag-model/tag-live/tag-other")を
-        書き換えるだけで反映されます。新しい年が増えたら .timeline-year ごと追加してください。
+        運用メモ：
+        ・経歴を追加するときは、対象の年の .year-panel 内に .timeline-item をコピーして
+          日付・タイトル・説明・タグ(class="tag tag-model/tag-live/tag-other")を書き換えるだけでOKです。
+        ・新しい年が増えたら、年タブ(.year-tab)と対応する .year-panel をセットで追加してください
+          （タブのaria-controls/パネルのidを同じ年で対応させること）。
+        ・表示・切り替え（年タブの選択状態・フェード切り替え）は js/works-tabs.js が担当します。
       -->
-      <ol class="timeline reveal">
-        <li class="timeline-year">2023</li>
-        <li class="timeline-item glass">
-          <p class="when">10月</p>
-          <h3>モデル活動開始 <span class="tag tag-model">Model</span></h3>
-          <p>被写体モデルとして活動をスタート。</p>
-        </li>
+      <div class="year-tabs-wrap reveal">
+        <div class="year-tabs" role="tablist" aria-label="活動経歴の年を選択">
+          <button type="button" class="year-tab" role="tab" id="year-tab-2023" aria-controls="year-panel-2023" aria-selected="false" tabindex="-1">2023</button>
+          <button type="button" class="year-tab" role="tab" id="year-tab-2024" aria-controls="year-panel-2024" aria-selected="false" tabindex="-1">2024</button>
+          <button type="button" class="year-tab" role="tab" id="year-tab-2025" aria-controls="year-panel-2025" aria-selected="false" tabindex="-1">2025</button>
+          <button type="button" class="year-tab" role="tab" id="year-tab-2026" aria-controls="year-panel-2026" aria-selected="true" tabindex="0">2026</button>
+        </div>
+      </div>
 
-        <li class="timeline-year">2024</li>
-        <li class="timeline-item glass">
-          <p class="when">2月</p>
-          <h3>TikTok LIVE 配信開始 <span class="tag tag-live">Live Streamer</span></h3>
-          <p>ライブ配信活動をスタート。</p>
-        </li>
-        <li class="timeline-item glass">
-          <p class="when">4月</p>
-          <h3>COLORS Jr. 展示モデル <span class="tag tag-model">Model</span></h3>
-          <p>展示作品のモデルとして参加。</p>
-        </li>
-        <li class="timeline-item glass">
-          <p class="when">10月</p>
-          <h3>REAL PORTRAIT 展示モデル <span class="tag tag-model">Model</span></h3>
-          <p>REAL PORTRAIT展示作品のモデルとして参加。</p>
-        </li>
+      <div class="year-panels reveal">
+        <ol class="year-panel timeline" id="year-panel-2023" role="tabpanel" aria-labelledby="year-tab-2023" tabindex="0" hidden>
+          <li class="timeline-item glass">
+            <p class="when">10月</p>
+            <h3>モデル活動開始 <span class="tag tag-model">Model</span></h3>
+            <p>被写体モデルとして活動をスタート。</p>
+          </li>
+        </ol>
 
-        <li class="timeline-year">2025</li>
-        <li class="timeline-item glass">
-          <p class="when">1月</p>
-          <h3>TikTok 日間ランキング入り <span class="tag tag-live">Live Streamer</span></h3>
-          <p>TikTok LIVEの日間ランキングにランクイン。</p>
-        </li>
-        <li class="timeline-item glass">
-          <p class="when">9月</p>
-          <h3>REAL PORTRAIT 展示モデル <span class="tag tag-model">Model</span></h3>
-          <p>REAL PORTRAIT展示作品のモデルとして参加。</p>
-        </li>
+        <ol class="year-panel timeline" id="year-panel-2024" role="tabpanel" aria-labelledby="year-tab-2024" tabindex="0" hidden>
+          <li class="timeline-item glass">
+            <p class="when">2月</p>
+            <h3>TikTok LIVE 配信開始 <span class="tag tag-live">Live Streamer</span></h3>
+            <p>ライブ配信活動をスタート。</p>
+          </li>
+          <li class="timeline-item glass">
+            <p class="when">4月</p>
+            <h3>COLORS Jr. 展示モデル <span class="tag tag-model">Model</span></h3>
+            <p>展示作品のモデルとして参加。</p>
+          </li>
+          <li class="timeline-item glass">
+            <p class="when">10月</p>
+            <h3>REAL PORTRAIT 展示モデル <span class="tag tag-model">Model</span></h3>
+            <p>REAL PORTRAIT展示作品のモデルとして参加。</p>
+          </li>
+          <li class="timeline-item glass">
+            <p class="when">10月</p>
+            <h3>TikTok Live 事務所ランキング5位 <span class="tag tag-live">Live Streamer</span></h3>
+            <p>所属事務所内のランキングで5位を獲得。</p>
+          </li>
+          <li class="timeline-item glass">
+            <p class="when">11月</p>
+            <h3>TikTok Live 事務所ランキング1位 <span class="tag tag-live">Live Streamer</span></h3>
+            <p>所属事務所内のランキングで1位を獲得。</p>
+          </li>
+        </ol>
 
-        <li class="timeline-year">2026</li>
-        <li class="timeline-item glass">
-          <p class="when">1月</p>
-          <h3>オフ会開催 <span class="tag tag-other">Other</span></h3>
-          <p>ファンとの交流イベントを開催。</p>
-        </li>
-        <li class="timeline-item glass">
-          <p class="when">2月</p>
-          <h3>FANME バレンタインイベント <span class="tag tag-live">Live Streamer</span></h3>
-          <p>総合4位・ルーキー1位を獲得。</p>
-        </li>
-        <li class="timeline-item glass">
-          <p class="when">4月</p>
-          <h3>OK boomer 展示モデル <span class="tag tag-model">Model</span></h3>
-          <p>展示作品のモデルとして参加。</p>
-        </li>
-        <li class="timeline-item glass">
-          <p class="when">4月</p>
-          <h3>さくひん魂 展示モデル <span class="tag tag-model">Model</span></h3>
-          <p>展示作品のモデルとして参加。</p>
-        </li>
-        <li class="timeline-item glass">
-          <p class="when">7月</p>
-          <h3>MID-FM761「しおりが紐解くDEEPな世界」ゲスト出演 <span class="tag tag-other">Other</span></h3>
-          <p>ラジオ番組にゲスト出演。</p>
-        </li>
-      </ol>
+        <ol class="year-panel timeline" id="year-panel-2025" role="tabpanel" aria-labelledby="year-tab-2025" tabindex="0" hidden>
+          <li class="timeline-item glass">
+            <p class="when">1月</p>
+            <h3>TikTok Live日間ランキング75位 <span class="tag tag-live">Live Streamer</span></h3>
+            <p>TikTok LIVEの日間ランキングに75位にランクイン。</p>
+          </li>
+          <li class="timeline-item glass">
+            <p class="when">4月</p>
+            <h3>TikTok Live 一致団結チャレンジ 総合4位 <span class="tag tag-live">Live Streamer</span></h3>
+            <p>「一致団結チャレンジ」で総合4位を獲得。</p>
+          </li>
+          <li class="timeline-item glass">
+            <p class="when">9月</p>
+            <h3>REAL PORTRAIT 展示モデル <span class="tag tag-model">Model</span></h3>
+            <p>REAL PORTRAIT展示作品のモデルとして参加。</p>
+          </li>
+        </ol>
+
+        <ol class="year-panel timeline is-active" id="year-panel-2026" role="tabpanel" aria-labelledby="year-tab-2026" tabindex="0">
+          <li class="timeline-item glass">
+            <p class="when">1月</p>
+            <h3>地元イベント出演＆誕生日オフ会開催 <span class="tag tag-other">Other</span></h3>
+            <p>ファンとの交流イベントを開催。</p>
+          </li>
+          <li class="timeline-item glass">
+            <p class="when">2月</p>
+            <h3>FANME バレンタインイベント <span class="tag tag-live">Live Streamer</span></h3>
+            <p>総合4位・ルーキー1位を獲得。</p>
+          </li>
+          <li class="timeline-item glass">
+            <p class="when">4月</p>
+            <h3>OK boomer 展示モデル <span class="tag tag-model">Model</span></h3>
+            <p>展示作品のモデルとして参加。</p>
+          </li>
+          <li class="timeline-item glass">
+            <p class="when">4月</p>
+            <h3>さくひん魂 展示モデル <span class="tag tag-model">Model</span></h3>
+            <p>展示作品のモデルとして参加。</p>
+          </li>
+          <li class="timeline-item glass">
+            <p class="when">7月</p>
+            <h3>MID-FM761「しおりが紐解くDEEPな世界」ゲスト出演 <span class="tag tag-other">Other</span></h3>
+            <p>ラジオ番組にゲスト出演。</p>
+          </li>
+        </ol>
+      </div>
     </div>
   </section>
 
   <!-- ============ 4. Gallery ============ -->
-  <section class="section" id="gallery">
+  <section class="section section-gallery" id="gallery">
     <div class="wrap">
       <div class="section-head center reveal">
         <span class="eyebrow">GALLERY</span>
         <h2 class="section-title">Gallery</h2>
-        <p class="section-lead center">これまでの撮影・活動の中から厳選した写真です。写真をクリックすると拡大表示できます。</p>
+        <span class="section-subtitle-en">Selected Works</span>
+        <p class="section-lead center">これまでの撮影・活動の中から厳選した写真です。写真をクリックすると拡大表示できます。指でスワイプ、またはドラッグして横に流せます。</p>
       </div>
+    </div>
 
-      <!--
-        運用メモ：写真を追加/入れ替えるときは .gallery-item を1ブロック複製し、
-        画像パスとalt文字列、data-fullを書き換えるだけでOKです。並び替えはブロックの順番を入れ替えるだけです。
-      -->
-      <div class="gallery-grid reveal" id="gallery-grid">
-        <figure class="gallery-item">
+    <!--
+      運用メモ：
+      ・写真を追加/入れ替えるときは .gallery-item を1ブロック複製し、画像パス・alt文字列・data-fullを書き換えるだけでOKです。
+      ・カードの形は gallery-item--tall（縦長）/ gallery-item--square（正方形）/ gallery-item--wide（横長）の
+        いずれかのclassで決まります。並びに変化をつけたいときはこの3種類を組み合わせてください（省略時は縦長扱い）。
+      ・このセクションは自動でゆっくり横に流れる無限ループのカルーセルです。
+        表示の複製・自動再生・ドラッグ操作は js/gallery.js が担当しているので、ここでは並べる写真の中身だけ気にすればOKです。
+    -->
+    <div class="gallery-viewport reveal" id="gallery-viewport">
+      <div class="gallery-grid" id="gallery-grid">
+        <figure class="gallery-item gallery-item--tall">
           <button type="button" data-full="assets/images/gallery/gallery-01.jpg" aria-label="ギャラリー写真1を拡大表示">
             <img src="assets/images/gallery/gallery-01.jpg" alt="紫色の照明とチュールカーテンの中で振り返るKOYUKI" width="1066" height="1600" loading="lazy">
           </button>
         </figure>
-        <figure class="gallery-item">
+        <figure class="gallery-item gallery-item--square">
           <button type="button" data-full="assets/images/gallery/gallery-02.jpg" aria-label="ギャラリー写真2を拡大表示">
             <img src="assets/images/gallery/gallery-02.jpg" alt="白いワンピースと帽子姿で寝そべるKOYUKI" width="1066" height="1600" loading="lazy">
           </button>
         </figure>
-        <figure class="gallery-item">
+        <figure class="gallery-item gallery-item--tall">
           <button type="button" data-full="assets/images/gallery/gallery-03.jpg" aria-label="ギャラリー写真3を拡大表示">
             <img src="assets/images/gallery/gallery-03.jpg" alt="赤いドレスで竹林を背景にしたKOYUKI" width="1066" height="1600" loading="lazy">
           </button>
         </figure>
-        <figure class="gallery-item">
+        <figure class="gallery-item gallery-item--wide">
           <button type="button" data-full="assets/images/gallery/gallery-04.jpg" aria-label="ギャラリー写真4を拡大表示">
             <img src="assets/images/gallery/gallery-04.jpg" alt="キャップとジャケットで街に立つKOYUKI" width="1066" height="1600" loading="lazy">
           </button>
         </figure>
-        <figure class="gallery-item">
+        <figure class="gallery-item gallery-item--tall">
           <button type="button" data-full="assets/images/gallery/gallery-05.jpg" aria-label="ギャラリー写真5を拡大表示">
             <img src="assets/images/gallery/gallery-05.jpg" alt="ビーチでいちごのボールを持つKOYUKI" width="1062" height="1600" loading="lazy">
           </button>
         </figure>
-        <figure class="gallery-item">
+        <figure class="gallery-item gallery-item--square">
           <button type="button" data-full="assets/images/gallery/gallery-06.jpg" aria-label="ギャラリー写真6を拡大表示">
             <img src="assets/images/gallery/gallery-06.jpg" alt="黒いシアートップスでフェンスの前に立つKOYUKI" width="1066" height="1600" loading="lazy">
           </button>
         </figure>
-        <figure class="gallery-item">
+        <figure class="gallery-item gallery-item--tall">
           <button type="button" data-full="assets/images/gallery/gallery-07.jpg" aria-label="ギャラリー写真7を拡大表示">
             <img src="assets/images/gallery/gallery-07.jpg" alt="ドライフラワーを手にしたKOYUKI" width="1066" height="1600" loading="lazy">
           </button>
         </figure>
-        <figure class="gallery-item">
+        <figure class="gallery-item gallery-item--wide">
           <button type="button" data-full="assets/images/gallery/gallery-08.jpg" aria-label="ギャラリー写真8を拡大表示">
             <img src="assets/images/gallery/gallery-08.jpg" alt="ラジオ収録スタジオでヘッドホンをつけるKOYUKI" width="1600" height="1066" loading="lazy">
           </button>
         </figure>
-        <figure class="gallery-item">
+        <figure class="gallery-item gallery-item--tall">
           <button type="button" data-full="assets/images/gallery/gallery-09.jpg" aria-label="ギャラリー写真9を拡大表示">
             <img src="assets/images/gallery/gallery-09.jpg" alt="イベント会場でチェキを構えるKOYUKI" width="1200" height="1600" loading="lazy">
           </button>
         </figure>
-        <figure class="gallery-item">
+        <figure class="gallery-item gallery-item--square">
           <button type="button" data-full="assets/images/gallery/gallery-10.jpg" aria-label="ギャラリー写真10を拡大表示">
             <img src="assets/images/gallery/gallery-10.jpg" alt="赤いドレスで竹林を背景にしたKOYUKI（別カット）" width="1066" height="1600" loading="lazy">
           </button>
@@ -372,11 +405,13 @@
         <p class="section-lead center">撮影・出演・イベント・コラボ・その他のご依頼を受け付けております。下記フォームよりお気軽にご連絡ください。</p>
       </div>
 
-      <form class="glass contact-card reveal" id="contact-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST" novalidate>
-        <!--
-          運用メモ：action の "YOUR_FORM_ID" を、契約したフォーム送信サービス
-          （例：Formspreeで発行されるID）に差し替えてください。詳細はREADMEを参照。
-        -->
+      <!--
+        運用メモ：このフォームはNetlify Formsで動作します（Netlifyへのデプロイ時に自動検出され、
+        追加設定なしでそのまま利用できます）。送信内容の通知先メールアドレスは、Netlifyの管理画面
+        （Site configuration → Forms → Form notifications）で設定してください。
+      -->
+      <form class="glass contact-card reveal" id="contact-form" name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field" action="thanks.html">
+        <input type="hidden" name="form-name" value="contact">
         <div class="form-row">
           <label for="cf-name">お名前<span class="required">必須</span></label>
           <input type="text" id="cf-name" name="name" autocomplete="name" required>
@@ -386,32 +421,23 @@
           <input type="email" id="cf-email" name="email" autocomplete="email" required>
         </div>
         <div class="form-row">
-          <label for="cf-type">ご依頼内容<span class="required">必須</span></label>
-          <select id="cf-type" name="request_type" required>
-            <option value="">選択してください</option>
-            <option value="撮影">撮影のご依頼</option>
-            <option value="出演">出演のご依頼</option>
-            <option value="イベント">イベントのご依頼</option>
-            <option value="コラボ">コラボのご依頼</option>
-            <option value="その他">その他のお問い合わせ</option>
-          </select>
+          <label for="cf-subject">件名</label>
+          <input type="text" id="cf-subject" name="subject" autocomplete="off">
         </div>
         <div class="form-row">
-          <label for="cf-message">本文<span class="required">必須</span></label>
+          <label for="cf-message">お問い合わせ内容<span class="required">必須</span></label>
           <textarea id="cf-message" name="message" required></textarea>
         </div>
 
-        <!-- スパム対策：ハニーポット（人間には見えないが、Botは埋めてしまう欄） -->
+        <!-- スパム対策：ハニーポット（人間には見えないが、Botは自動入力してしまう欄）。
+             name="bot-field" とform側のnetlify-honeypot="bot-field"の組み合わせで、Netlifyが自動的にスパム判定します -->
         <div class="form-row hp-field" aria-hidden="true">
-          <label for="cf-website">Webサイト（入力しないでください）</label>
-          <input type="text" id="cf-website" name="_gotcha" tabindex="-1" autocomplete="off">
+          <label for="cf-bot-field">Webサイト（入力しないでください）</label>
+          <input type="text" id="cf-bot-field" name="bot-field" tabindex="-1" autocomplete="off">
         </div>
-        <!-- スパム対策：フォーム表示時刻を保持し、即時送信（Botに多い挙動）を弾く -->
-        <input type="hidden" name="_loaded_at" id="cf-loaded-at" value="">
 
         <button type="submit" class="btn btn-solid form-submit">送信する</button>
         <p class="form-note">送信いただいた内容は、お仕事のご依頼対応以外の目的では使用いたしません。</p>
-        <div class="form-status" id="form-status" role="status" aria-live="polite"></div>
       </form>
     </div>
   </section>
@@ -470,7 +496,7 @@
 </div>
 
 <script src="js/main.js"></script>
+<script src="js/works-tabs.js"></script>
 <script src="js/gallery.js"></script>
-<script src="js/contact.js"></script>
 </body>
 </html>
