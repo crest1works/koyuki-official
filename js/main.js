@@ -3,15 +3,32 @@ document.addEventListener('DOMContentLoaded', () => {
   const toggle = document.getElementById('nav-toggle');
   const nav = document.getElementById('main-nav');
   if (toggle && nav) {
-    toggle.addEventListener('click', () => {
-      const open = nav.classList.toggle('open');
+    // メニュー表示中は背景ページをスクロールできないようにする。
+    // overflow:hiddenだけだとブラウザによっては（特にiOS Safari）スクロールを
+    // 完全には防げないため、bodyをposition:fixedにして固定する、より確実な方法を使う。
+    let lockedScrollY = 0;
+    const setOpen = (open) => {
+      nav.classList.toggle('open', open);
       toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+      if (open) {
+        lockedScrollY = window.scrollY;
+        document.body.style.position = 'fixed';
+        document.body.style.top = `-${lockedScrollY}px`;
+        document.body.style.left = '0';
+        document.body.style.right = '0';
+      } else {
+        document.body.style.position = '';
+        document.body.style.top = '';
+        document.body.style.left = '';
+        document.body.style.right = '';
+        window.scrollTo(0, lockedScrollY);
+      }
+    };
+    toggle.addEventListener('click', () => {
+      setOpen(!nav.classList.contains('open'));
     });
     nav.querySelectorAll('a').forEach((a) => {
-      a.addEventListener('click', () => {
-        nav.classList.remove('open');
-        toggle.setAttribute('aria-expanded', 'false');
-      });
+      a.addEventListener('click', () => setOpen(false));
     });
   }
 

@@ -1078,6 +1078,9 @@ a.news-index-item:focus-visible .news-link-indicator {
 }
 
 @media (max-width: 860px) {
+  /* スマホのハンバーガーメニュー：下のHero写真やコンテンツが一切透けないよう、
+     半透明のガラス表現ではなく完全に不透明な背景（白〜ごく薄いラベンダー）にする。
+     開いている間は画面全体（ヘッダー直下から下端まで）を覆う */
   .main-nav {
     position: fixed;
     top: 84px;
@@ -1085,14 +1088,12 @@ a.news-index-item:focus-visible .news-link-indicator {
     flex-direction: column;
     align-items: flex-start;
     gap: 0;
-    background: var(--glass-bg-strong);
-    backdrop-filter: var(--glass-blur);
-    border-bottom: 1px solid var(--glass-border);
-    max-height: 0;
+    background: linear-gradient(180deg, #ffffff 0%, var(--lavender-50) 100%);
+    height: 0;
     overflow: hidden;
-    transition: max-height 0.4s var(--ease);
+    transition: height 0.4s var(--ease);
   }
-  .main-nav.open { max-height: 420px; }
+  .main-nav.open { height: calc(100svh - 84px); }
   .main-nav a { width: 100%; padding: 18px 24px; border-bottom: 1px solid var(--lavender-50); }
   .nav-toggle { display: flex; }
 
