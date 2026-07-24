@@ -136,6 +136,10 @@ textarea:focus-visible {
   border: 0;
 }
 
+/* 「マルチクリエイター」等のカタカナ複合語が、スマホ幅で単語の途中から
+   改行されて読みにくくなるのを防ぐ（語のまとまりごと次の行に送る） */
+.nowrap-ja { white-space: nowrap; }
+
 .wrap {
   width: 100%;
   max-width: var(--container);
@@ -515,6 +519,15 @@ textarea:focus-visible {
   font-size: 1rem;
   color: var(--ink-900);
   margin-bottom: 4px;
+}
+/* 活動内容は日本語をメインにし、英語表記は補助として小さく下に添える */
+.about-meta-en {
+  display: block;
+  margin-top: 2px;
+  font-family: var(--font-serif);
+  font-size: 0.72rem;
+  letter-spacing: 0.04em;
+  color: var(--ink-300);
 }
 
 /* 7) Works ------------------------------------------------------- */
