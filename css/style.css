@@ -520,15 +520,6 @@ textarea:focus-visible {
   color: var(--ink-900);
   margin-bottom: 4px;
 }
-/* 活動内容は日本語をメインにし、英語表記は補助として小さく下に添える */
-.about-meta-en {
-  display: block;
-  margin-top: 2px;
-  font-family: var(--font-serif);
-  font-size: 0.72rem;
-  letter-spacing: 0.04em;
-  color: var(--ink-300);
-}
 
 /* 7) Works ------------------------------------------------------- */
 .works-categories {
