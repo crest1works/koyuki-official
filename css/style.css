@@ -371,18 +371,18 @@ textarea:focus-visible {
   letter-spacing: 0.08em;
 }
 
-.hero-copy .btn { margin-top: 40px; }
-
 /* テキストの下に並ぶNEWSカード（左寄せ） */
 /* 写真が明るい/白っぽい場合でもカードの輪郭が沈まないよう、
    .glass より不透明度と縁取りを強めた専用スタイルにしています。
-   記事が増えてもHeroの高さが変わらないよう、一覧は内部だけ縦スクロールにしています。 */
+   記事が増えてもHeroの高さが変わらないよう、一覧は内部だけ縦スクロールにしています。
+   VIEW MOREボタンを廃止したぶん、テキストとカードの間隔を少し広めにして
+   窮屈に見えないようにしています。 */
 .hero-news-card {
   display: flex;
   flex-direction: column;
   width: 100%;
   max-width: 460px;
-  margin-top: 40px;
+  margin-top: 56px;
   padding: 28px 24px 24px 28px;
   background: var(--glass-bg-strong);
   border: 1px solid rgba(171, 143, 215, 0.4);
@@ -433,26 +433,48 @@ textarea:focus-visible {
 }
 .hero-news-list a:hover .title { color: var(--lavender-600); }
 
+/* 「押せるボタン」と分かるよう、カード下部中央にピル型のCTAとして配置 */
 .hero-news-card .view-all {
   display: inline-flex;
   align-items: center;
-  gap: 6px;
-  align-self: flex-end;
-  margin-top: 16px;
-  font-size: 0.8rem;
+  gap: 8px;
+  align-self: center;
+  margin-top: 20px;
+  padding: 12px 28px;
+  border-radius: var(--radius-pill);
+  border: 1px solid var(--lavender-300);
+  background: var(--lavender-50);
+  font-family: var(--font-serif);
+  font-size: 0.88rem;
   letter-spacing: 0.1em;
   color: var(--lavender-600);
+  transition: background var(--dur) var(--ease), border-color var(--dur) var(--ease), box-shadow var(--dur) var(--ease), transform var(--dur) var(--ease);
 }
+.hero-news-card .view-all:hover {
+  background: #fff;
+  border-color: var(--lavender-400);
+  box-shadow: var(--shadow-card);
+  transform: translateY(-2px);
+}
+.hero-news-card .view-all .btn-arrow { font-size: 1.05em; }
+.hero-news-card .view-all:hover .btn-arrow { transform: translateX(4px); }
 
 /* 6) About ------------------------------------------------------ */
-.about-grid {
-  display: grid;
-  grid-template-columns: 0.85fr 1.15fr;
-  gap: 64px;
+/* スクロールした瞬間に文章が先に目に入るよう、文章→写真の縦積み構成に統一
+   （PC/タブレット/スマホ共通。写真は文章より後ろ・小さめ・中央配置） */
+.about-stack {
+  display: flex;
+  flex-direction: column;
   align-items: center;
+  text-align: center;
 }
 
+.about-body { max-width: 640px; }
+
 .about-photo {
+  width: 80%;
+  max-width: 420px;
+  margin-top: 48px;
   border-radius: var(--radius-lg);
   overflow: hidden;
   box-shadow: var(--shadow-soft);
@@ -480,9 +502,11 @@ textarea:focus-visible {
 
 .about-meta {
   display: flex;
+  justify-content: center;
   gap: 40px;
   margin-top: 36px;
   flex-wrap: wrap;
+  text-align: left;
 }
 .about-meta div { font-size: 0.85rem; color: var(--ink-500); }
 .about-meta strong {
@@ -1050,8 +1074,6 @@ a.news-index-item:focus-visible .news-link-indicator {
 
 /* 13) レスポンシブ ---------------------------------------------------- */
 @media (max-width: 1080px) {
-  .about-grid { grid-template-columns: 1fr; }
-  .about-photo { max-width: 420px; margin: 0 auto; }
   #gallery { --gallery-card-h: 340px; --gallery-gap: 22px; }
 }
 
